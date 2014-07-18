@@ -1,0 +1,14 @@
+HEADER    PCl5
+COMPND    PCl5                                                    
+ATOM      1  P   ???     1       0.000   0.000   0.000                                  
+ATOM      2  Cl  ???     1      -2.040   0.000   0.000                                  
+ATOM      3  Cl  ???     1       0.000   0.000   2.040                                  
+ATOM      4  Cl  ???     1       0.000   0.000  -2.040                                  
+ATOM      5  Cl  ???     1       1.020   1.767   0.000                                  
+ATOM      6  Cl  ???     1       1.020  -1.767   0.000
+CONECT    2    1
+CONECT    3    1
+CONECT    4    1
+CONECT    5    1
+CONECT    6    1
+END   

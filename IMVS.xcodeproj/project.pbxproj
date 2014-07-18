@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F945B351968AA290029948A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B341968AA290029948A /* AppDelegate.swift */; };
+		1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B361968AA290029948A /* MoleculeViewController.swift */; };
+		1F945B3A1968AA290029948A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F945B381968AA290029948A /* Main.storyboard */; };
+		1F945B3C1968AA290029948A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F945B3B1968AA290029948A /* Images.xcassets */; };
+		1F945B481968AA290029948A /* IMVSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B471968AA290029948A /* IMVSTests.swift */; };
+		1F945B591968BD810029948A /* Molecule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B581968BD810029948A /* Molecule.swift */; };
+		1F945B5B1968BD960029948A /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5A1968BD960029948A /* Atom.swift */; };
+		1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5D1968BDB10029948A /* PDBLoader.swift */; };
+		1F945B60196967A10029948A /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5F196967A10029948A /* Point3D.swift */; };
+		1FD532A1197867E2007ABCAF /* fullerene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A0197867E2007ABCAF /* fullerene.pdb */; };
+		1FD532A519786A03007ABCAF /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A219786A03007ABCAF /* streptomycin.pdb */; };
+		1FD532A619786A03007ABCAF /* ibuprofen.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A319786A03007ABCAF /* ibuprofen.pdb */; };
+		1FD532A719786A03007ABCAF /* octane.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A419786A03007ABCAF /* octane.pdb */; };
+		1FD532A919787CD3007ABCAF /* atp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A819787CD3007ABCAF /* atp.pdb */; };
+		1FEB6BBA1972FF26001EFADF /* 1CF7.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */; };
+		1FEB6BBB1972FF26001EFADF /* 1CRN.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */; };
+		1FEB6BBC1972FF26001EFADF /* 3INS.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAE1972FF26001EFADF /* 3INS.pdb */; };
+		1FEB6BBD1972FF26001EFADF /* 3RFM.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */; };
+		1FEB6BBE1972FF26001EFADF /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB01972FF26001EFADF /* benzene.pdb */; };
+		1FEB6BBF1972FF26001EFADF /* c2h2.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB11972FF26001EFADF /* c2h2.pdb */; };
+		1FEB6BC01972FF26001EFADF /* diamond.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB21972FF26001EFADF /* diamond.pdb */; };
+		1FEB6BC11972FF26001EFADF /* dna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB31972FF26001EFADF /* dna.pdb */; };
+		1FEB6BC21972FF26001EFADF /* graphite.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB41972FF26001EFADF /* graphite.pdb */; };
+		1FEB6BC31972FF26001EFADF /* hemeco.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB51972FF26001EFADF /* hemeco.pdb */; };
+		1FEB6BC41972FF26001EFADF /* hemeo2.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB61972FF26001EFADF /* hemeo2.pdb */; };
+		1FEB6BC51972FF26001EFADF /* lys195k.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB71972FF26001EFADF /* lys195k.pdb */; };
+		1FEB6BC61972FF26001EFADF /* nacl.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB81972FF26001EFADF /* nacl.pdb */; };
+		1FEB6BC71972FF26001EFADF /* pcl5.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB91972FF26001EFADF /* pcl5.pdb */; };
+		1FEB6BC919730035001EFADF /* Residue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BC819730035001EFADF /* Residue.swift */; };
+		1FEB6BCB19730055001EFADF /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCA19730055001EFADF /* Chain.swift */; };
+		1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCC19730C47001EFADF /* ColourFactory.swift */; };
+		1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCE19730D4B001EFADF /* Colour.swift */; };
+		1FEB6BD119732BE1001EFADF /* MoleculeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */; };
+		1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD21973356D001EFADF /* MoleculeTableViewCell.swift */; };
+		1FEB6BD619735421001EFADF /* RadiusFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD519735421001EFADF /* RadiusFactory.swift */; };
+		1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */; };
+		1FEB6BDA1974813D001EFADF /* RenderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD91974813D001EFADF /* RenderFactory.swift */; };
+		1FEB6BDC19748574001EFADF /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BDB19748574001EFADF /* Bond.swift */; };
+		1FEB6BDE197695C4001EFADF /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F945B421968AA290029948A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F945B271968AA290029948A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F945B2E1968AA290029948A;
+			remoteInfo = IMVS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F945B2F1968AA290029948A /* IMVS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F945B331968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F945B341968AA290029948A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F945B361968AA290029948A /* MoleculeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeViewController.swift; sourceTree = "<group>"; };
+		1F945B391968AA290029948A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F945B3B1968AA290029948A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1F945B411968AA290029948A /* IMVSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMVSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F945B461968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F945B471968AA290029948A /* IMVSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMVSTests.swift; sourceTree = "<group>"; };
+		1F945B541968B7260029948A /* PlaygroundPDB.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PlaygroundPDB.playground; sourceTree = "<group>"; };
+		1F945B581968BD810029948A /* Molecule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Molecule.swift; sourceTree = "<group>"; };
+		1F945B5A1968BD960029948A /* Atom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
+		1F945B5D1968BDB10029948A /* PDBLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBLoader.swift; sourceTree = "<group>"; };
+		1F945B5F196967A10029948A /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
+		1FD532A0197867E2007ABCAF /* fullerene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fullerene.pdb; sourceTree = "<group>"; };
+		1FD532A219786A03007ABCAF /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
+		1FD532A319786A03007ABCAF /* ibuprofen.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ibuprofen.pdb; sourceTree = "<group>"; };
+		1FD532A419786A03007ABCAF /* octane.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = octane.pdb; sourceTree = "<group>"; };
+		1FD532A819787CD3007ABCAF /* atp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = atp.pdb; sourceTree = "<group>"; };
+		1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CF7.pdb; sourceTree = "<group>"; };
+		1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CRN.pdb; sourceTree = "<group>"; };
+		1FEB6BAE1972FF26001EFADF /* 3INS.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3INS.pdb; sourceTree = "<group>"; };
+		1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3RFM.pdb; sourceTree = "<group>"; };
+		1FEB6BB01972FF26001EFADF /* benzene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = benzene.pdb; sourceTree = "<group>"; };
+		1FEB6BB11972FF26001EFADF /* c2h2.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = c2h2.pdb; sourceTree = "<group>"; };
+		1FEB6BB21972FF26001EFADF /* diamond.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diamond.pdb; sourceTree = "<group>"; };
+		1FEB6BB31972FF26001EFADF /* dna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dna.pdb; sourceTree = "<group>"; };
+		1FEB6BB41972FF26001EFADF /* graphite.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphite.pdb; sourceTree = "<group>"; };
+		1FEB6BB51972FF26001EFADF /* hemeco.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hemeco.pdb; sourceTree = "<group>"; };
+		1FEB6BB61972FF26001EFADF /* hemeo2.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hemeo2.pdb; sourceTree = "<group>"; };
+		1FEB6BB71972FF26001EFADF /* lys195k.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lys195k.pdb; sourceTree = "<group>"; };
+		1FEB6BB81972FF26001EFADF /* nacl.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nacl.pdb; sourceTree = "<group>"; };
+		1FEB6BB91972FF26001EFADF /* pcl5.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pcl5.pdb; sourceTree = "<group>"; };
+		1FEB6BC819730035001EFADF /* Residue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Residue.swift; sourceTree = "<group>"; };
+		1FEB6BCA19730055001EFADF /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
+		1FEB6BCC19730C47001EFADF /* ColourFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourFactory.swift; sourceTree = "<group>"; };
+		1FEB6BCE19730D4B001EFADF /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
+		1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeTableViewController.swift; sourceTree = "<group>"; };
+		1FEB6BD21973356D001EFADF /* MoleculeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeTableViewCell.swift; sourceTree = "<group>"; };
+		1FEB6BD519735421001EFADF /* RadiusFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusFactory.swift; sourceTree = "<group>"; };
+		1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryStructure.swift; sourceTree = "<group>"; };
+		1FEB6BD91974813D001EFADF /* RenderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderFactory.swift; sourceTree = "<group>"; };
+		1FEB6BDB19748574001EFADF /* Bond.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
+		1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F945B2C1968AA290029948A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F945B3E1968AA290029948A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F945B261968AA290029948A = {
+			isa = PBXGroup;
+			children = (
+				1F945B311968AA290029948A /* IMVS */,
+				1F945B441968AA290029948A /* IMVSTests */,
+				1F945B301968AA290029948A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F945B301968AA290029948A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B2F1968AA290029948A /* IMVS.app */,
+				1F945B411968AA290029948A /* IMVSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F945B311968AA290029948A /* IMVS */ = {
+			isa = PBXGroup;
+			children = (
+				1FEB6B7B1972EB3D001EFADF /* View */,
+				1F945B5C1968BD9E0029948A /* Data */,
+				1F945B571968BD6B0029948A /* Model */,
+				1F945B541968B7260029948A /* PlaygroundPDB.playground */,
+				1F945B341968AA290029948A /* AppDelegate.swift */,
+				1F945B381968AA290029948A /* Main.storyboard */,
+				1F945B3B1968AA290029948A /* Images.xcassets */,
+				1F945B321968AA290029948A /* Supporting Files */,
+			);
+			path = IMVS;
+			sourceTree = "<group>";
+		};
+		1F945B321968AA290029948A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FEB6B741972E7A0001EFADF /* pdb */,
+				1F945B331968AA290029948A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F945B441968AA290029948A /* IMVSTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B471968AA290029948A /* IMVSTests.swift */,
+				1F945B451968AA290029948A /* Supporting Files */,
+			);
+			path = IMVSTests;
+			sourceTree = "<group>";
+		};
+		1F945B451968AA290029948A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B461968AA290029948A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F945B571968BD6B0029948A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B581968BD810029948A /* Molecule.swift */,
+				1F945B5A1968BD960029948A /* Atom.swift */,
+				1F945B5F196967A10029948A /* Point3D.swift */,
+				1FEB6BC819730035001EFADF /* Residue.swift */,
+				1FEB6BCA19730055001EFADF /* Chain.swift */,
+				1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */,
+				1FEB6BDB19748574001EFADF /* Bond.swift */,
+				1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1F945B5C1968BD9E0029948A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B5D1968BDB10029948A /* PDBLoader.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		1FEB6B741972E7A0001EFADF /* pdb */ = {
+			isa = PBXGroup;
+			children = (
+				1FD532A819787CD3007ABCAF /* atp.pdb */,
+				1FD532A219786A03007ABCAF /* streptomycin.pdb */,
+				1FD532A319786A03007ABCAF /* ibuprofen.pdb */,
+				1FD532A419786A03007ABCAF /* octane.pdb */,
+				1FD532A0197867E2007ABCAF /* fullerene.pdb */,
+				1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */,
+				1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */,
+				1FEB6BAE1972FF26001EFADF /* 3INS.pdb */,
+				1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */,
+				1FEB6BB01972FF26001EFADF /* benzene.pdb */,
+				1FEB6BB11972FF26001EFADF /* c2h2.pdb */,
+				1FEB6BB21972FF26001EFADF /* diamond.pdb */,
+				1FEB6BB31972FF26001EFADF /* dna.pdb */,
+				1FEB6BB41972FF26001EFADF /* graphite.pdb */,
+				1FEB6BB51972FF26001EFADF /* hemeco.pdb */,
+				1FEB6BB61972FF26001EFADF /* hemeo2.pdb */,
+				1FEB6BB71972FF26001EFADF /* lys195k.pdb */,
+				1FEB6BB81972FF26001EFADF /* nacl.pdb */,
+				1FEB6BB91972FF26001EFADF /* pcl5.pdb */,
+			);
+			path = pdb;
+			sourceTree = "<group>";
+		};
+		1FEB6B7B1972EB3D001EFADF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FEB6BD419733C48001EFADF /* Rendering */,
+				1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */,
+				1FEB6BD21973356D001EFADF /* MoleculeTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1FEB6BD419733C48001EFADF /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B361968AA290029948A /* MoleculeViewController.swift */,
+				1FEB6BCC19730C47001EFADF /* ColourFactory.swift */,
+				1FEB6BCE19730D4B001EFADF /* Colour.swift */,
+				1FEB6BD519735421001EFADF /* RadiusFactory.swift */,
+				1FEB6BD91974813D001EFADF /* RenderFactory.swift */,
+			);
+			name = Rendering;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F945B2E1968AA290029948A /* IMVS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F945B4B1968AA290029948A /* Build configuration list for PBXNativeTarget "IMVS" */;
+			buildPhases = (
+				1F945B2B1968AA290029948A /* Sources */,
+				1F945B2C1968AA290029948A /* Frameworks */,
+				1F945B2D1968AA290029948A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IMVS;
+			productName = IMVS;
+			productReference = 1F945B2F1968AA290029948A /* IMVS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F945B401968AA290029948A /* IMVSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F945B4E1968AA290029948A /* Build configuration list for PBXNativeTarget "IMVSTests" */;
+			buildPhases = (
+				1F945B3D1968AA290029948A /* Sources */,
+				1F945B3E1968AA290029948A /* Frameworks */,
+				1F945B3F1968AA290029948A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F945B431968AA290029948A /* PBXTargetDependency */,
+			);
+			name = IMVSTests;
+			productName = IMVSTests;
+			productReference = 1F945B411968AA290029948A /* IMVSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F945B271968AA290029948A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Allistair Crossley";
+				TargetAttributes = {
+					1F945B2E1968AA290029948A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					1F945B401968AA290029948A = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 1F945B2E1968AA290029948A;
+					};
+				};
+			};
+			buildConfigurationList = 1F945B2A1968AA290029948A /* Build configuration list for PBXProject "IMVS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F945B261968AA290029948A;
+			productRefGroup = 1F945B301968AA290029948A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F945B2E1968AA290029948A /* IMVS */,
+				1F945B401968AA290029948A /* IMVSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F945B2D1968AA290029948A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FEB6BC71972FF26001EFADF /* pcl5.pdb in Resources */,
+				1FEB6BC21972FF26001EFADF /* graphite.pdb in Resources */,
+				1FEB6BBB1972FF26001EFADF /* 1CRN.pdb in Resources */,
+				1FEB6BBA1972FF26001EFADF /* 1CF7.pdb in Resources */,
+				1FEB6BC51972FF26001EFADF /* lys195k.pdb in Resources */,
+				1F945B3A1968AA290029948A /* Main.storyboard in Resources */,
+				1FEB6BC41972FF26001EFADF /* hemeo2.pdb in Resources */,
+				1FEB6BC61972FF26001EFADF /* nacl.pdb in Resources */,
+				1FEB6BBF1972FF26001EFADF /* c2h2.pdb in Resources */,
+				1FD532A919787CD3007ABCAF /* atp.pdb in Resources */,
+				1FD532A619786A03007ABCAF /* ibuprofen.pdb in Resources */,
+				1FEB6BC11972FF26001EFADF /* dna.pdb in Resources */,
+				1F945B3C1968AA290029948A /* Images.xcassets in Resources */,
+				1FD532A719786A03007ABCAF /* octane.pdb in Resources */,
+				1FEB6BC31972FF26001EFADF /* hemeco.pdb in Resources */,
+				1FEB6BBD1972FF26001EFADF /* 3RFM.pdb in Resources */,
+				1FEB6BC01972FF26001EFADF /* diamond.pdb in Resources */,
+				1FEB6BBE1972FF26001EFADF /* benzene.pdb in Resources */,
+				1FEB6BBC1972FF26001EFADF /* 3INS.pdb in Resources */,
+				1FD532A1197867E2007ABCAF /* fullerene.pdb in Resources */,
+				1FD532A519786A03007ABCAF /* streptomycin.pdb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F945B3F1968AA290029948A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F945B2B1968AA290029948A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F945B591968BD810029948A /* Molecule.swift in Sources */,
+				1FEB6BDE197695C4001EFADF /* PeriodicTable.swift in Sources */,
+				1FEB6BD119732BE1001EFADF /* MoleculeTableViewController.swift in Sources */,
+				1FEB6BDA1974813D001EFADF /* RenderFactory.swift in Sources */,
+				1FEB6BD619735421001EFADF /* RadiusFactory.swift in Sources */,
+				1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */,
+				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
+				1FEB6BCB19730055001EFADF /* Chain.swift in Sources */,
+				1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */,
+				1FEB6BDC19748574001EFADF /* Bond.swift in Sources */,
+				1F945B60196967A10029948A /* Point3D.swift in Sources */,
+				1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */,
+				1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */,
+				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
+				1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */,
+				1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */,
+				1F945B351968AA290029948A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F945B3D1968AA290029948A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F945B481968AA290029948A /* IMVSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F945B431968AA290029948A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F945B2E1968AA290029948A /* IMVS */;
+			targetProxy = 1F945B421968AA290029948A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F945B381968AA290029948A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F945B391968AA290029948A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F945B491968AA290029948A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F945B4A1968AA290029948A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F945B4C1968AA290029948A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = IMVS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F945B4D1968AA290029948A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = IMVS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1F945B4F1968AA290029948A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IMVS.app/IMVS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IMVSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		1F945B501968AA290029948A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IMVS.app/IMVS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IMVSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F945B2A1968AA290029948A /* Build configuration list for PBXProject "IMVS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F945B491968AA290029948A /* Debug */,
+				1F945B4A1968AA290029948A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F945B4B1968AA290029948A /* Build configuration list for PBXNativeTarget "IMVS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F945B4C1968AA290029948A /* Debug */,
+				1F945B4D1968AA290029948A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F945B4E1968AA290029948A /* Build configuration list for PBXNativeTarget "IMVSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F945B4F1968AA290029948A /* Debug */,
+				1F945B501968AA290029948A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F945B271968AA290029948A /* Project object */;
+}
