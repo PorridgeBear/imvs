@@ -11,7 +11,7 @@ import UIKit
 
 class MoleculeTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var pdbFileList: [String] = [ "atp", "1CRN", "fullerene", "benzene", "streptomycin", "ibuprofen", "octane", "dna" ]
+    var pdbFileList: [String] = [ "_bond-test", "atp", "1CRN", "fullerene", "benzene", "streptomycin", "ibuprofen", "octane", "dna" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()

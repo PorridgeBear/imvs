@@ -16,6 +16,8 @@
 		1F945B5B1968BD960029948A /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5A1968BD960029948A /* Atom.swift */; };
 		1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5D1968BDB10029948A /* PDBLoader.swift */; };
 		1F945B60196967A10029948A /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5F196967A10029948A /* Point3D.swift */; };
+		1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */; };
+		1F956B0B197BEF38005505F8 /* _bond-test.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F956B0A197BEF38005505F8 /* _bond-test.pdb */; };
 		1FD532A1197867E2007ABCAF /* fullerene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A0197867E2007ABCAF /* fullerene.pdb */; };
 		1FD532A519786A03007ABCAF /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A219786A03007ABCAF /* streptomycin.pdb */; };
 		1FD532A619786A03007ABCAF /* ibuprofen.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A319786A03007ABCAF /* ibuprofen.pdb */; };
@@ -73,6 +75,8 @@
 		1F945B5A1968BD960029948A /* Atom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		1F945B5D1968BDB10029948A /* PDBLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBLoader.swift; sourceTree = "<group>"; };
 		1F945B5F196967A10029948A /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
+		1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
+		1F956B0A197BEF38005505F8 /* _bond-test.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_bond-test.pdb"; sourceTree = "<group>"; };
 		1FD532A0197867E2007ABCAF /* fullerene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fullerene.pdb; sourceTree = "<group>"; };
 		1FD532A219786A03007ABCAF /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
 		1FD532A319786A03007ABCAF /* ibuprofen.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ibuprofen.pdb; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		1F945B311968AA290029948A /* IMVS */ = {
 			isa = PBXGroup;
 			children = (
+				1F956B071979C3C8005505F8 /* Util */,
 				1FEB6B7B1972EB3D001EFADF /* View */,
 				1F945B5C1968BD9E0029948A /* Data */,
 				1F945B571968BD6B0029948A /* Model */,
@@ -205,6 +210,14 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		1F956B071979C3C8005505F8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		1FEB6B741972E7A0001EFADF /* pdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +228,7 @@
 				1FD532A0197867E2007ABCAF /* fullerene.pdb */,
 				1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */,
 				1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */,
+				1F956B0A197BEF38005505F8 /* _bond-test.pdb */,
 				1FEB6BAE1972FF26001EFADF /* 3INS.pdb */,
 				1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */,
 				1FEB6BB01972FF26001EFADF /* benzene.pdb */,
@@ -346,6 +360,7 @@
 				1FD532A619786A03007ABCAF /* ibuprofen.pdb in Resources */,
 				1FEB6BC11972FF26001EFADF /* dna.pdb in Resources */,
 				1F945B3C1968AA290029948A /* Images.xcassets in Resources */,
+				1F956B0B197BEF38005505F8 /* _bond-test.pdb in Resources */,
 				1FD532A719786A03007ABCAF /* octane.pdb in Resources */,
 				1FEB6BC31972FF26001EFADF /* hemeco.pdb in Resources */,
 				1FEB6BBD1972FF26001EFADF /* 3RFM.pdb in Resources */,
@@ -380,6 +395,7 @@
 				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
 				1FEB6BCB19730055001EFADF /* Chain.swift in Sources */,
 				1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */,
+				1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */,
 				1FEB6BDC19748574001EFADF /* Bond.swift in Sources */,
 				1F945B60196967A10029948A /* Point3D.swift in Sources */,
 				1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */,

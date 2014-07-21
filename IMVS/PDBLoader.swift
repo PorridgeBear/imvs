@@ -12,19 +12,11 @@ class PDBLoader {
     
     var molecule = Molecule()
     
-    func loadMoleculeForPath(pdbFile:String) {
+    func loadMoleculeForPath(pdbFile: String) {
         
         let path = NSBundle.mainBundle().pathForResource(pdbFile, ofType: "pdb")
         molecule.name = pdbFile
 
-        // @TODO if path invalid throw exception
-        /*
-        let inputStream = NSInputStream.inputStreamWithFileAtPath(path)
-        inputStream.delegate = self
-        inputStream.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
-        inputStream.open()
-        */
-        
         let content = String.stringWithContentsOfFile(path, encoding: NSUTF8StringEncoding, error: nil)
         let lines = content!.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
        
@@ -38,12 +30,12 @@ class PDBLoader {
         report()
     }
     
-    func getDataForColumnsInLine(line:String, from:Int, to:Int) -> String {
+    func getDataForColumnsInLine(line: String, from: Int, to: Int) -> String {
         let tmp = line.substringFromIndex(from - 1)
         return tmp.substringToIndex(to - from + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
     
-    func isRecordTypeEqualTo(to:String, line:String) -> Bool {
+    func isRecordTypeEqualTo(to: String, line: String) -> Bool {
         
         if line.isEmpty || countElements(line) < 6 {
             return false
@@ -52,14 +44,14 @@ class PDBLoader {
         return getDataForColumnsInLine(line, from: 1, to: 6) == to
     }
 
-    func readHEADERWithLine(line:String) {
+    func readHEADERWithLine(line: String) {
         
         if isRecordTypeEqualTo("HEADER", line: line) {
             // molecule.name = getDataForColumnsInLine(line, from: 11, to: 50)
         }
     }
     
-    func readATOMWithLine(line:String) {
+    func readATOMWithLine(line: String) {
         
         if isRecordTypeEqualTo("ATOM", line: line) {
             

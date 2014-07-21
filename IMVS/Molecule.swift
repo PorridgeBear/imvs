@@ -109,9 +109,9 @@ class Molecule {
         
         // @TODO MoleculeViewController will need to show loading bonds screen
         // @TODO perhaps for huge molecules restrict display modes to those not needing bonds?
-        dispatch_async(dispatch_get_main_queue(), {
+        //dispatch_async(dispatch_get_main_queue(), {
             self.createBonds()
-        });
+        //});
     }
     
     /**
@@ -130,48 +130,52 @@ class Molecule {
             }
         }
         
-        // Not the most efficient thing in the world - loop all chains/residues/atoms
-        // again for every atom i - RasMol uses some kind of localised space partionining
+        // Need to figure out Octree implementation, for now use JMVS strategy
+        // of per-residue per-chain bonding, then other special bonds (disulphide bridges,
+        // polypeptide chains and sugar phosphates)
         
         println("Creating bonds for \(atoms.count) atoms")
         
-        for var i = 0; i < atoms.count; i++ {
-            for var j = i + 1; j < atoms.count; j++ {
-                
-                let src = atoms[i]
-                let dst = atoms[j]
-                
-                if src.id == dst.id {
-                    continue
-                }
+        for chain in chains {
             
-                if doesBondExist(src, dst: dst) {
-                    continue
+            for residue in chain.residues {
+                
+                for var i = 0; i < residue.atoms.count; i++ {
+                    
+                    for var j = i + 1; j < residue.atoms.count; j++ {
+                        
+                        let src = atoms[i]
+                        let dst = atoms[j]
+                        
+                        if src.id == dst.id {
+                            continue
+                        }
+                        
+                        if doesBondExist(src, dst: dst) {
+                            continue
+                        }
+                        
+                        // Find distance between 2 atoms using Pythagoras
+                        let a = src.position.x - dst.position.x
+                        let b = src.position.y - dst.position.y
+                        let c = src.position.z - dst.position.z
+                        let d = sqrt(a * a + b * b + c * c)
+                        
+                        let max: Float = src.valence + dst.valence + 0.56
+                        if d >= 0.4 && d <= max {
+                            let bond = Bond(src: src, dst: dst)
+                            bonds.append(bond)
+                        }
+                        
+                        /* RasMol quick bonding method
+                        var upperLimit: Float = doesBondIncludeHydrogen(src, dst: dst) ? 1.2 : 1.9
+                        if d >= 0.4 && d <= upperLimit {
+                            let bond = Bond(src: src, dst: dst)
+                            bonds.append(bond)
+                        }
+                        */
+                    }
                 }
-                
-                // Find distance between 2 atoms using Pythagoras
-                let a = src.position.x - dst.position.x
-                let b = src.position.y - dst.position.y
-                let c = src.position.z - dst.position.z
-                let d = sqrt(a * a + b * b + c * c)
-                
-                // RasMol quick bonding method
-                var upperLimit: Float = doesBondIncludeHydrogen(src, dst: dst) ? 1.2 : 1.9
-                if d >= 0.4 && d <= upperLimit {
-                    let bond = Bond(src: src, dst: dst)
-                    bonds.append(bond)
-                }
-                
-                /* longer method
-                var summedValences = src.valence + dst.valence + 0.56
-                
-                println("d=\(d), v=\(summedValences)")
-                
-                if d >= 0.4 && d <= summedValences  {
-                    let bond = Bond(src: src, dst: dst)
-                    bonds.append(bond)
-                }
-                */
             }
         }
         
