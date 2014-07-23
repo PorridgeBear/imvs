@@ -49,6 +49,7 @@ class MoleculeViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         scene.rootNode.addChildNode(RenderFactory.createSticks(pdbLoader.molecule))
+        scene.rootNode.addChildNode(RenderFactory.createBalls(pdbLoader.molecule))
         
         /* animate the 3d object
         let animation: CABasicAnimation = CABasicAnimation(keyPath: "rotation")
