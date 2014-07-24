@@ -12,18 +12,19 @@ import SceneKit
 
 class MoleculeViewController: UIViewController {
 
+    let pdbLoader = PDBLoader()
     var pdbFile: String = ""
+    
+    var scene = SCNScene()
+    var molNode = SCNNode()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         println("MVC viewDidLoad \(pdbFile)")
         
-        let pdbLoader = PDBLoader()
         pdbLoader.loadMoleculeForPath(pdbFile)
         self.title = pdbLoader.molecule.name
-
-        let scene = SCNScene()
 
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
@@ -48,8 +49,7 @@ class MoleculeViewController: UIViewController {
         ambientLightNode.light.color = UIColor.darkGrayColor()
         scene.rootNode.addChildNode(ambientLightNode)
         
-        let molNode = SCNNode()
-        RenderFactory.createSticks(pdbLoader.molecule, molNode: molNode)
+        RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         scene.rootNode.addChildNode(molNode)
         
         /* animate the 3d object
@@ -63,7 +63,7 @@ class MoleculeViewController: UIViewController {
         let scnView = self.view as SCNView
         scnView.scene = scene
         scnView.allowsCameraControl = true
-        scnView.showsStatistics = true
+        // scnView.showsStatistics = true
         scnView.backgroundColor = UIColor.blackColor()
         
         /* add a tap gesture recognizer
@@ -75,40 +75,22 @@ class MoleculeViewController: UIViewController {
         */
     }
     
-    func handleTap(gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as SCNView
+    @IBAction func renderModeChanged(sender: UISegmentedControl) {
         
-        // check what nodes are tapped
-        let p = gestureRecognize.locationInView(scnView)
-        let hitResults = scnView.hitTest(p, options: nil)
+        // Remove current render
+        molNode.removeFromParentNode()
         
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result: AnyObject! = hitResults[0]
-            
-            // get its material
-            let material = result.node!.geometry.firstMaterial
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.setAnimationDuration(0.5)
-            
-            // on completion - unhighlight
-            SCNTransaction.setCompletionBlock {
-                SCNTransaction.begin()
-                SCNTransaction.setAnimationDuration(0.5)
-                
-                material.emission.contents = UIColor.blackColor()
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.redColor()
-            
-            SCNTransaction.commit()
+        // Setup the new render
+        molNode = SCNNode()
+        
+        switch sender.selectedSegmentIndex {
+        case 1:
+            RenderFactory.createSticks(pdbLoader.molecule, molNode: molNode)
+        default:
+            RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         }
+        
+        scene.rootNode.addChildNode(molNode)
     }
     
     override func shouldAutorotate() -> Bool {
