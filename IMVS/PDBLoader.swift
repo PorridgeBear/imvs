@@ -26,13 +26,11 @@ class PDBLoader {
         }
         
         molecule.commit()
-        
-        report()
     }
     
     func getDataForColumnsInLine(line: String, from: Int, to: Int) -> String {
-        let tmp = line.substringFromIndex(from - 1)
-        return tmp.substringToIndex(to - from + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let tmp = line.bridgeToObjectiveC().substringFromIndex(from - 1)
+        return tmp.bridgeToObjectiveC().substringToIndex(to - from + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
     
     func isRecordTypeEqualTo(to: String, line: String) -> Bool {
@@ -57,31 +55,11 @@ class PDBLoader {
             
             let id = getDataForColumnsInLine(line, from: 7, to: 11)
             
-            var name = getDataForColumnsInLine(line, from: 13, to: 16)
-            var nameJustLetters: String = ""
-            
-            for char in name {
-                
-                let test = "\(char)"
-                
-                // Hacky is numeric test, Swift needs more simple utility functions on String!
-                var range: NSRange = NSRangeFromString(test)
-                if range.length == 0 && range.location == 0 {
-                    nameJustLetters = nameJustLetters.stringByAppendingString(test)
-                }
-            }
+            let name = getDataForColumnsInLine(line, from: 13, to: 16)
+            let element = getDataForColumnsInLine(line, from: 13, to: 14)
             
             let residue = getDataForColumnsInLine(line, from: 18, to: 20)
             let chain = getDataForColumnsInLine(line, from: 22, to: 22)
-
-            var element = nameJustLetters
-            if countElements(line) >= 78 {
-                element = getDataForColumnsInLine(line, from: 77, to: 78)
-            }
-            
-            if element.isEmpty {
-                element = nameJustLetters
-            }
 
             let x = (getDataForColumnsInLine(line, from: 31, to: 38) as NSString).floatValue
             let y = (getDataForColumnsInLine(line, from: 39, to: 46) as NSString).floatValue
@@ -91,9 +69,5 @@ class PDBLoader {
             
             molecule.addAtom(atom)
         }
-    }
-    
-    func report() {
-
     }
 }
