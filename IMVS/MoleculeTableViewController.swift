@@ -11,7 +11,17 @@ import UIKit
 
 class MoleculeTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var pdbFileList: [String] = [ "_bond-test", "atp", "1CRN", "fullerene", "benzene", "streptomycin", "ibuprofen", "octane", "dna" ]
+    var pdbFileList: [String] = [
+        "1crn", // Bonding needs fixes
+        "ala",
+        "atp",
+        "benzene", // Aromatic bonds needed
+        "cys",
+        //"dna",
+        "gc-zdna", // Bonding needs fixes
+        "octane",
+        "trp"
+    ];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +45,7 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
             cell = MoleculeTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MolCell")
         }
         
-        cell.nameLabel.text = pdbFileList[indexPath.row]
+        cell.nameLabel!.text = pdbFileList[indexPath.row]
         
         return cell
     }
