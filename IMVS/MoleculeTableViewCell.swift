@@ -11,5 +11,9 @@ import UIKit
 
 class MoleculeTableViewCell: UITableViewCell {
     
-    @IBOutlet var nameLabel: UILabel
+    @IBOutlet var nameLabel: UILabel?
+    
+    init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier);
+    }
 }
