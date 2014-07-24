@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F09BDC5198060340000AB61 /* 1bbe.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDA8198060340000AB61 /* 1bbe.pdb */; };
+		1F09BDC6198060340000AB61 /* 1CF7.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDA9198060340000AB61 /* 1CF7.pdb */; };
+		1F09BDC7198060340000AB61 /* 1iyu.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAA198060340000AB61 /* 1iyu.pdb */; };
+		1F09BDC8198060340000AB61 /* 1pse.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAB198060340000AB61 /* 1pse.pdb */; };
+		1F09BDC9198060340000AB61 /* 3INS.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAC198060340000AB61 /* 3INS.pdb */; };
+		1F09BDCA198060340000AB61 /* 3RFM.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAD198060340000AB61 /* 3RFM.pdb */; };
+		1F09BDCB198060340000AB61 /* 132l.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAE198060340000AB61 /* 132l.pdb */; };
+		1F09BDCC198060340000AB61 /* ala.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAF198060340000AB61 /* ala.pdb */; };
+		1F09BDCD198060340000AB61 /* atp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB0198060340000AB61 /* atp.pdb */; };
+		1F09BDCE198060340000AB61 /* b12.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB1198060340000AB61 /* b12.pdb */; };
+		1F09BDCF198060340000AB61 /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB2198060340000AB61 /* benzene.pdb */; };
+		1F09BDD0198060340000AB61 /* c2h2.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB3198060340000AB61 /* c2h2.pdb */; };
+		1F09BDD1198060340000AB61 /* cys.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB4198060340000AB61 /* cys.pdb */; };
+		1F09BDD2198060340000AB61 /* diamond.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB5198060340000AB61 /* diamond.pdb */; };
+		1F09BDD3198060340000AB61 /* dna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB6198060340000AB61 /* dna.pdb */; };
+		1F09BDD4198060340000AB61 /* fullerene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB7198060340000AB61 /* fullerene.pdb */; };
+		1F09BDD5198060340000AB61 /* gc-zdna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB8198060340000AB61 /* gc-zdna.pdb */; };
+		1F09BDD6198060340000AB61 /* graphite.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDB9198060340000AB61 /* graphite.pdb */; };
+		1F09BDD7198060340000AB61 /* hemeco.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDBA198060340000AB61 /* hemeco.pdb */; };
+		1F09BDD8198060340000AB61 /* hemeo2.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDBB198060340000AB61 /* hemeo2.pdb */; };
+		1F09BDD9198060340000AB61 /* igg1-cac.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDBC198060340000AB61 /* igg1-cac.pdb */; };
+		1F09BDDA198060340000AB61 /* lys195k.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDBD198060340000AB61 /* lys195k.pdb */; };
+		1F09BDDB198060340000AB61 /* nacl.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDBE198060340000AB61 /* nacl.pdb */; };
+		1F09BDDC198060340000AB61 /* octane.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDBF198060340000AB61 /* octane.pdb */; };
+		1F09BDDD198060340000AB61 /* pcl5.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC0198060340000AB61 /* pcl5.pdb */; };
+		1F09BDDE198060340000AB61 /* plp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC1198060340000AB61 /* plp.pdb */; };
+		1F09BDDF198060340000AB61 /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC2198060340000AB61 /* streptomycin.pdb */; };
+		1F09BDE0198060340000AB61 /* trp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC3198060340000AB61 /* trp.pdb */; };
+		1F09BDE1198060340000AB61 /* zdna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC4198060340000AB61 /* zdna.pdb */; };
 		1F945B351968AA290029948A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B341968AA290029948A /* AppDelegate.swift */; };
 		1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B361968AA290029948A /* MoleculeViewController.swift */; };
 		1F945B3A1968AA290029948A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F945B381968AA290029948A /* Main.storyboard */; };
@@ -17,26 +46,7 @@
 		1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5D1968BDB10029948A /* PDBLoader.swift */; };
 		1F945B60196967A10029948A /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5F196967A10029948A /* Point3D.swift */; };
 		1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */; };
-		1F956B0B197BEF38005505F8 /* _bond-test.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F956B0A197BEF38005505F8 /* _bond-test.pdb */; };
-		1FD532A1197867E2007ABCAF /* fullerene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A0197867E2007ABCAF /* fullerene.pdb */; };
-		1FD532A519786A03007ABCAF /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A219786A03007ABCAF /* streptomycin.pdb */; };
-		1FD532A619786A03007ABCAF /* ibuprofen.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A319786A03007ABCAF /* ibuprofen.pdb */; };
-		1FD532A719786A03007ABCAF /* octane.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A419786A03007ABCAF /* octane.pdb */; };
-		1FD532A919787CD3007ABCAF /* atp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FD532A819787CD3007ABCAF /* atp.pdb */; };
-		1FEB6BBA1972FF26001EFADF /* 1CF7.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */; };
-		1FEB6BBB1972FF26001EFADF /* 1CRN.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */; };
-		1FEB6BBC1972FF26001EFADF /* 3INS.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAE1972FF26001EFADF /* 3INS.pdb */; };
-		1FEB6BBD1972FF26001EFADF /* 3RFM.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */; };
-		1FEB6BBE1972FF26001EFADF /* benzene.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB01972FF26001EFADF /* benzene.pdb */; };
-		1FEB6BBF1972FF26001EFADF /* c2h2.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB11972FF26001EFADF /* c2h2.pdb */; };
-		1FEB6BC01972FF26001EFADF /* diamond.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB21972FF26001EFADF /* diamond.pdb */; };
-		1FEB6BC11972FF26001EFADF /* dna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB31972FF26001EFADF /* dna.pdb */; };
-		1FEB6BC21972FF26001EFADF /* graphite.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB41972FF26001EFADF /* graphite.pdb */; };
-		1FEB6BC31972FF26001EFADF /* hemeco.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB51972FF26001EFADF /* hemeco.pdb */; };
-		1FEB6BC41972FF26001EFADF /* hemeo2.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB61972FF26001EFADF /* hemeo2.pdb */; };
-		1FEB6BC51972FF26001EFADF /* lys195k.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB71972FF26001EFADF /* lys195k.pdb */; };
-		1FEB6BC61972FF26001EFADF /* nacl.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB81972FF26001EFADF /* nacl.pdb */; };
-		1FEB6BC71972FF26001EFADF /* pcl5.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB6BB91972FF26001EFADF /* pcl5.pdb */; };
+		1FE1C93C1981B28000C1AECD /* 1crn.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1C93B1981B28000C1AECD /* 1crn.pdb */; };
 		1FEB6BC919730035001EFADF /* Residue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BC819730035001EFADF /* Residue.swift */; };
 		1FEB6BCB19730055001EFADF /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCA19730055001EFADF /* Chain.swift */; };
 		1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCC19730C47001EFADF /* ColourFactory.swift */; };
@@ -61,6 +71,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F09BDA8198060340000AB61 /* 1bbe.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1bbe.pdb; sourceTree = "<group>"; };
+		1F09BDA9198060340000AB61 /* 1CF7.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CF7.pdb; sourceTree = "<group>"; };
+		1F09BDAA198060340000AB61 /* 1iyu.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1iyu.pdb; sourceTree = "<group>"; };
+		1F09BDAB198060340000AB61 /* 1pse.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1pse.pdb; sourceTree = "<group>"; };
+		1F09BDAC198060340000AB61 /* 3INS.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3INS.pdb; sourceTree = "<group>"; };
+		1F09BDAD198060340000AB61 /* 3RFM.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3RFM.pdb; sourceTree = "<group>"; };
+		1F09BDAE198060340000AB61 /* 132l.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 132l.pdb; sourceTree = "<group>"; };
+		1F09BDAF198060340000AB61 /* ala.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ala.pdb; sourceTree = "<group>"; };
+		1F09BDB0198060340000AB61 /* atp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = atp.pdb; sourceTree = "<group>"; };
+		1F09BDB1198060340000AB61 /* b12.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = b12.pdb; sourceTree = "<group>"; };
+		1F09BDB2198060340000AB61 /* benzene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = benzene.pdb; sourceTree = "<group>"; };
+		1F09BDB3198060340000AB61 /* c2h2.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = c2h2.pdb; sourceTree = "<group>"; };
+		1F09BDB4198060340000AB61 /* cys.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cys.pdb; sourceTree = "<group>"; };
+		1F09BDB5198060340000AB61 /* diamond.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diamond.pdb; sourceTree = "<group>"; };
+		1F09BDB6198060340000AB61 /* dna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dna.pdb; sourceTree = "<group>"; };
+		1F09BDB7198060340000AB61 /* fullerene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fullerene.pdb; sourceTree = "<group>"; };
+		1F09BDB8198060340000AB61 /* gc-zdna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gc-zdna.pdb"; sourceTree = "<group>"; };
+		1F09BDB9198060340000AB61 /* graphite.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphite.pdb; sourceTree = "<group>"; };
+		1F09BDBA198060340000AB61 /* hemeco.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hemeco.pdb; sourceTree = "<group>"; };
+		1F09BDBB198060340000AB61 /* hemeo2.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hemeo2.pdb; sourceTree = "<group>"; };
+		1F09BDBC198060340000AB61 /* igg1-cac.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "igg1-cac.pdb"; sourceTree = "<group>"; };
+		1F09BDBD198060340000AB61 /* lys195k.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lys195k.pdb; sourceTree = "<group>"; };
+		1F09BDBE198060340000AB61 /* nacl.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nacl.pdb; sourceTree = "<group>"; };
+		1F09BDBF198060340000AB61 /* octane.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = octane.pdb; sourceTree = "<group>"; };
+		1F09BDC0198060340000AB61 /* pcl5.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pcl5.pdb; sourceTree = "<group>"; };
+		1F09BDC1198060340000AB61 /* plp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plp.pdb; sourceTree = "<group>"; };
+		1F09BDC2198060340000AB61 /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
+		1F09BDC3198060340000AB61 /* trp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trp.pdb; sourceTree = "<group>"; };
+		1F09BDC4198060340000AB61 /* zdna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zdna.pdb; sourceTree = "<group>"; };
 		1F945B2F1968AA290029948A /* IMVS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F945B331968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F945B341968AA290029948A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,26 +115,7 @@
 		1F945B5D1968BDB10029948A /* PDBLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBLoader.swift; sourceTree = "<group>"; };
 		1F945B5F196967A10029948A /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
 		1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
-		1F956B0A197BEF38005505F8 /* _bond-test.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_bond-test.pdb"; sourceTree = "<group>"; };
-		1FD532A0197867E2007ABCAF /* fullerene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fullerene.pdb; sourceTree = "<group>"; };
-		1FD532A219786A03007ABCAF /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
-		1FD532A319786A03007ABCAF /* ibuprofen.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ibuprofen.pdb; sourceTree = "<group>"; };
-		1FD532A419786A03007ABCAF /* octane.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = octane.pdb; sourceTree = "<group>"; };
-		1FD532A819787CD3007ABCAF /* atp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = atp.pdb; sourceTree = "<group>"; };
-		1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CF7.pdb; sourceTree = "<group>"; };
-		1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CRN.pdb; sourceTree = "<group>"; };
-		1FEB6BAE1972FF26001EFADF /* 3INS.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3INS.pdb; sourceTree = "<group>"; };
-		1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3RFM.pdb; sourceTree = "<group>"; };
-		1FEB6BB01972FF26001EFADF /* benzene.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = benzene.pdb; sourceTree = "<group>"; };
-		1FEB6BB11972FF26001EFADF /* c2h2.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = c2h2.pdb; sourceTree = "<group>"; };
-		1FEB6BB21972FF26001EFADF /* diamond.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diamond.pdb; sourceTree = "<group>"; };
-		1FEB6BB31972FF26001EFADF /* dna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dna.pdb; sourceTree = "<group>"; };
-		1FEB6BB41972FF26001EFADF /* graphite.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphite.pdb; sourceTree = "<group>"; };
-		1FEB6BB51972FF26001EFADF /* hemeco.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hemeco.pdb; sourceTree = "<group>"; };
-		1FEB6BB61972FF26001EFADF /* hemeo2.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hemeo2.pdb; sourceTree = "<group>"; };
-		1FEB6BB71972FF26001EFADF /* lys195k.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lys195k.pdb; sourceTree = "<group>"; };
-		1FEB6BB81972FF26001EFADF /* nacl.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nacl.pdb; sourceTree = "<group>"; };
-		1FEB6BB91972FF26001EFADF /* pcl5.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pcl5.pdb; sourceTree = "<group>"; };
+		1FE1C93B1981B28000C1AECD /* 1crn.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1crn.pdb; sourceTree = "<group>"; };
 		1FEB6BC819730035001EFADF /* Residue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Residue.swift; sourceTree = "<group>"; };
 		1FEB6BCA19730055001EFADF /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		1FEB6BCC19730C47001EFADF /* ColourFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourFactory.swift; sourceTree = "<group>"; };
@@ -221,26 +241,36 @@
 		1FEB6B741972E7A0001EFADF /* pdb */ = {
 			isa = PBXGroup;
 			children = (
-				1FD532A819787CD3007ABCAF /* atp.pdb */,
-				1FD532A219786A03007ABCAF /* streptomycin.pdb */,
-				1FD532A319786A03007ABCAF /* ibuprofen.pdb */,
-				1FD532A419786A03007ABCAF /* octane.pdb */,
-				1FD532A0197867E2007ABCAF /* fullerene.pdb */,
-				1FEB6BAC1972FF26001EFADF /* 1CF7.pdb */,
-				1FEB6BAD1972FF26001EFADF /* 1CRN.pdb */,
-				1F956B0A197BEF38005505F8 /* _bond-test.pdb */,
-				1FEB6BAE1972FF26001EFADF /* 3INS.pdb */,
-				1FEB6BAF1972FF26001EFADF /* 3RFM.pdb */,
-				1FEB6BB01972FF26001EFADF /* benzene.pdb */,
-				1FEB6BB11972FF26001EFADF /* c2h2.pdb */,
-				1FEB6BB21972FF26001EFADF /* diamond.pdb */,
-				1FEB6BB31972FF26001EFADF /* dna.pdb */,
-				1FEB6BB41972FF26001EFADF /* graphite.pdb */,
-				1FEB6BB51972FF26001EFADF /* hemeco.pdb */,
-				1FEB6BB61972FF26001EFADF /* hemeo2.pdb */,
-				1FEB6BB71972FF26001EFADF /* lys195k.pdb */,
-				1FEB6BB81972FF26001EFADF /* nacl.pdb */,
-				1FEB6BB91972FF26001EFADF /* pcl5.pdb */,
+				1F09BDA8198060340000AB61 /* 1bbe.pdb */,
+				1F09BDA9198060340000AB61 /* 1CF7.pdb */,
+				1F09BDAA198060340000AB61 /* 1iyu.pdb */,
+				1F09BDAB198060340000AB61 /* 1pse.pdb */,
+				1FE1C93B1981B28000C1AECD /* 1crn.pdb */,
+				1F09BDAC198060340000AB61 /* 3INS.pdb */,
+				1F09BDAD198060340000AB61 /* 3RFM.pdb */,
+				1F09BDAE198060340000AB61 /* 132l.pdb */,
+				1F09BDAF198060340000AB61 /* ala.pdb */,
+				1F09BDB0198060340000AB61 /* atp.pdb */,
+				1F09BDB1198060340000AB61 /* b12.pdb */,
+				1F09BDB2198060340000AB61 /* benzene.pdb */,
+				1F09BDB3198060340000AB61 /* c2h2.pdb */,
+				1F09BDB4198060340000AB61 /* cys.pdb */,
+				1F09BDB5198060340000AB61 /* diamond.pdb */,
+				1F09BDB6198060340000AB61 /* dna.pdb */,
+				1F09BDB7198060340000AB61 /* fullerene.pdb */,
+				1F09BDB8198060340000AB61 /* gc-zdna.pdb */,
+				1F09BDB9198060340000AB61 /* graphite.pdb */,
+				1F09BDBA198060340000AB61 /* hemeco.pdb */,
+				1F09BDBB198060340000AB61 /* hemeo2.pdb */,
+				1F09BDBC198060340000AB61 /* igg1-cac.pdb */,
+				1F09BDBD198060340000AB61 /* lys195k.pdb */,
+				1F09BDBE198060340000AB61 /* nacl.pdb */,
+				1F09BDBF198060340000AB61 /* octane.pdb */,
+				1F09BDC0198060340000AB61 /* pcl5.pdb */,
+				1F09BDC1198060340000AB61 /* plp.pdb */,
+				1F09BDC2198060340000AB61 /* streptomycin.pdb */,
+				1F09BDC3198060340000AB61 /* trp.pdb */,
+				1F09BDC4198060340000AB61 /* zdna.pdb */,
 			);
 			path = pdb;
 			sourceTree = "<group>";
@@ -347,28 +377,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FEB6BC71972FF26001EFADF /* pcl5.pdb in Resources */,
-				1FEB6BC21972FF26001EFADF /* graphite.pdb in Resources */,
-				1FEB6BBB1972FF26001EFADF /* 1CRN.pdb in Resources */,
-				1FEB6BBA1972FF26001EFADF /* 1CF7.pdb in Resources */,
-				1FEB6BC51972FF26001EFADF /* lys195k.pdb in Resources */,
+				1F09BDCE198060340000AB61 /* b12.pdb in Resources */,
+				1F09BDD4198060340000AB61 /* fullerene.pdb in Resources */,
 				1F945B3A1968AA290029948A /* Main.storyboard in Resources */,
-				1FEB6BC41972FF26001EFADF /* hemeo2.pdb in Resources */,
-				1FEB6BC61972FF26001EFADF /* nacl.pdb in Resources */,
-				1FEB6BBF1972FF26001EFADF /* c2h2.pdb in Resources */,
-				1FD532A919787CD3007ABCAF /* atp.pdb in Resources */,
-				1FD532A619786A03007ABCAF /* ibuprofen.pdb in Resources */,
-				1FEB6BC11972FF26001EFADF /* dna.pdb in Resources */,
+				1F09BDDE198060340000AB61 /* plp.pdb in Resources */,
+				1F09BDC8198060340000AB61 /* 1pse.pdb in Resources */,
+				1F09BDDF198060340000AB61 /* streptomycin.pdb in Resources */,
+				1F09BDD1198060340000AB61 /* cys.pdb in Resources */,
+				1F09BDE1198060340000AB61 /* zdna.pdb in Resources */,
+				1F09BDCF198060340000AB61 /* benzene.pdb in Resources */,
+				1F09BDDB198060340000AB61 /* nacl.pdb in Resources */,
+				1F09BDC6198060340000AB61 /* 1CF7.pdb in Resources */,
+				1F09BDC7198060340000AB61 /* 1iyu.pdb in Resources */,
+				1F09BDCB198060340000AB61 /* 132l.pdb in Resources */,
+				1F09BDDA198060340000AB61 /* lys195k.pdb in Resources */,
+				1F09BDD0198060340000AB61 /* c2h2.pdb in Resources */,
+				1F09BDCC198060340000AB61 /* ala.pdb in Resources */,
+				1F09BDCA198060340000AB61 /* 3RFM.pdb in Resources */,
+				1F09BDD6198060340000AB61 /* graphite.pdb in Resources */,
+				1F09BDD3198060340000AB61 /* dna.pdb in Resources */,
+				1F09BDDC198060340000AB61 /* octane.pdb in Resources */,
+				1F09BDD8198060340000AB61 /* hemeo2.pdb in Resources */,
+				1F09BDD2198060340000AB61 /* diamond.pdb in Resources */,
+				1F09BDCD198060340000AB61 /* atp.pdb in Resources */,
+				1F09BDD7198060340000AB61 /* hemeco.pdb in Resources */,
+				1F09BDC5198060340000AB61 /* 1bbe.pdb in Resources */,
+				1F09BDD5198060340000AB61 /* gc-zdna.pdb in Resources */,
+				1F09BDD9198060340000AB61 /* igg1-cac.pdb in Resources */,
+				1FE1C93C1981B28000C1AECD /* 1crn.pdb in Resources */,
+				1F09BDDD198060340000AB61 /* pcl5.pdb in Resources */,
+				1F09BDE0198060340000AB61 /* trp.pdb in Resources */,
 				1F945B3C1968AA290029948A /* Images.xcassets in Resources */,
-				1F956B0B197BEF38005505F8 /* _bond-test.pdb in Resources */,
-				1FD532A719786A03007ABCAF /* octane.pdb in Resources */,
-				1FEB6BC31972FF26001EFADF /* hemeco.pdb in Resources */,
-				1FEB6BBD1972FF26001EFADF /* 3RFM.pdb in Resources */,
-				1FEB6BC01972FF26001EFADF /* diamond.pdb in Resources */,
-				1FEB6BBE1972FF26001EFADF /* benzene.pdb in Resources */,
-				1FEB6BBC1972FF26001EFADF /* 3INS.pdb in Resources */,
-				1FD532A1197867E2007ABCAF /* fullerene.pdb in Resources */,
-				1FD532A519786A03007ABCAF /* streptomycin.pdb in Resources */,
+				1F09BDC9198060340000AB61 /* 3INS.pdb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
