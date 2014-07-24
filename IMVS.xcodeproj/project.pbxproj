@@ -47,6 +47,7 @@
 		1F945B60196967A10029948A /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5F196967A10029948A /* Point3D.swift */; };
 		1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */; };
 		1FE1C93C1981B28000C1AECD /* 1crn.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1C93B1981B28000C1AECD /* 1crn.pdb */; };
+		1FE1C9471981BAA600C1AECD /* MoleculeControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1C9461981BAA600C1AECD /* MoleculeControlViewController.swift */; };
 		1FEB6BC919730035001EFADF /* Residue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BC819730035001EFADF /* Residue.swift */; };
 		1FEB6BCB19730055001EFADF /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCA19730055001EFADF /* Chain.swift */; };
 		1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCC19730C47001EFADF /* ColourFactory.swift */; };
@@ -116,6 +117,7 @@
 		1F945B5F196967A10029948A /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
 		1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
 		1FE1C93B1981B28000C1AECD /* 1crn.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1crn.pdb; sourceTree = "<group>"; };
+		1FE1C9461981BAA600C1AECD /* MoleculeControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeControlViewController.swift; sourceTree = "<group>"; };
 		1FEB6BC819730035001EFADF /* Residue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Residue.swift; sourceTree = "<group>"; };
 		1FEB6BCA19730055001EFADF /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		1FEB6BCC19730C47001EFADF /* ColourFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourFactory.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				1FEB6BD419733C48001EFADF /* Rendering */,
 				1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */,
 				1FEB6BD21973356D001EFADF /* MoleculeTableViewCell.swift */,
+				1FE1C9461981BAA600C1AECD /* MoleculeControlViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */,
 				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
 				1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */,
+				1FE1C9471981BAA600C1AECD /* MoleculeControlViewController.swift in Sources */,
 				1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */,
 				1F945B351968AA290029948A /* AppDelegate.swift in Sources */,
 			);
@@ -561,9 +565,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = IMVS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -572,6 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = IMVS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
