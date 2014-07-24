@@ -11,9 +11,7 @@ import SceneKit
 
 class RenderFactory {
     
-    class func createBalls(molecule: Molecule) -> SCNNode {
-        
-        let molNode = SCNNode()
+    class func createBalls(molecule: Molecule, molNode: SCNNode, forceSize: Float) {
         
         for chain in molecule.chains {
             
@@ -32,19 +30,17 @@ class RenderFactory {
                         x: atom.position.x - molecule.center.x,
                         y: atom.position.y - molecule.center.y,
                         z: atom.position.z - molecule.center.z)
-                    atomNode.geometry = SCNSphere(radius: CGFloat(SizeFactory.makeCovalentSize(atom) + 0.5) * 0.3)
+                    atomNode.geometry = SCNSphere(radius: CGFloat(forceSize <= 0.0 ? SizeFactory.makeCovalentSize(atom) + 0.5 : forceSize))
                     atomNode.geometry.firstMaterial = material
                     molNode.addChildNode(atomNode)
                 }
             }
         }
-        
-        return molNode
     }
     
-    class func createSticks(molecule: Molecule) -> SCNNode {
+    class func createSticks(molecule: Molecule, molNode: SCNNode) {
         
-        let molNode = SCNNode()
+        RenderFactory.createBalls(molecule, molNode: molNode, forceSize: 0.3)
         
         println("Draw \(molecule.bonds.count) bonds")
         
@@ -53,7 +49,6 @@ class RenderFactory {
             // Bond src half
             
             var bondNodeSrc = SCNNode()
-            bondNodeSrc.position = SCNVector3(x: bond.src.position.x, y: bond.src.position.y, z: bond.src.position.z)
             let bondHeightAndTSrc = computeBondHeightAndTransform(bond.src, t: bond.dst, m: molecule)
             bondNodeSrc.transform = bondHeightAndTSrc.transform
             
@@ -63,15 +58,16 @@ class RenderFactory {
             materialSrc.lightingModelName = SCNLightingModelLambert
             materialSrc.locksAmbientWithDiffuse = true
             
-            bondNodeSrc.geometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: bondHeightAndTSrc.height)
+            bondNodeSrc.geometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: CGFloat(bondHeightAndTSrc.height))
             bondNodeSrc.geometry.firstMaterial = materialSrc
             
+            molNode.addChildNode(bondNodeSrc)
+            
             // Bond dst half
-            /*
+
             var bondNodeDst = SCNNode()
-            bondNodeDst.position = SCNVector3(x: bond.dst.position.x, y: bond.dst.position.y, z: bond.dst.position.z)
-            let bondHeightAndTDst = computeBondHeightAndTransform(bond.dst, t: bond.src)
-            //bondNodeDst.transform = bondHeightAndTDst.transform
+            let bondHeightAndTDst = computeBondHeightAndTransform(bond.dst, t: bond.src, m: molecule)
+            bondNodeDst.transform = bondHeightAndTDst.transform
             
             let materialDst = SCNMaterial()
             let colourDst = ColourFactory.makeCPKColour(bond.dst)
@@ -79,15 +75,11 @@ class RenderFactory {
             materialDst.lightingModelName = SCNLightingModelLambert
             materialDst.locksAmbientWithDiffuse = true
             
-            bondNodeDst.geometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: bondHeightAndTDst.height)
+            bondNodeDst.geometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: CGFloat(bondHeightAndTDst.height))
             bondNodeDst.geometry.firstMaterial = materialDst
-            */
-            // Add to molecule
-            
-            molNode.addChildNode(bondNodeSrc)
+
+            molNode.addChildNode(bondNodeDst)
         }
-        
-        return molNode
     }
 
     class func computeBondHeightAndTransform(f: Atom, t: Atom, m: Molecule) -> (height: Float, transform: SCNMatrix4) {
@@ -96,19 +88,21 @@ class RenderFactory {
         let worldY = SCNVector3Make(0, 1, 0)
         
         var angle = acos(SCNVector3DotProduct(worldY, fToT.normalized()))
-        if( SCNVector3DotProduct(SCNVector3Make(fToT.x, 0, fToT.z), fToT) > 0) {
+        if SCNVector3DotProduct(SCNVector3Make(fToT.x, 0, fToT.z), fToT) > 0 {
             angle = -angle;
         }
+        
         let rotAxis = SCNVector3CrossProduct(fToT, worldY).normalized();
 
-        var origin = SCNVector3(x: f.position.x - m.center.x + (fToT.x / 2),
-                                y: f.position.y - m.center.y + (fToT.y / 2),
-                                z: f.position.z - m.center.z + (fToT.z / 2))
-        var translation = SCNMatrix4MakeTranslation(origin.x, origin.y, origin.z)
-        var rotation = SCNMatrix4MakeRotation(angle, rotAxis.x, rotAxis.y, rotAxis.z)
-        let m = SCNMatrix4Mult(rotation, translation)
+        let origin = SCNVector3(x: f.position.x - m.center.x + (fToT.x / 4),
+                                y: f.position.y - m.center.y + (fToT.y / 4),
+                                z: f.position.z - m.center.z + (fToT.z / 4))
         
-        let d = fToT.length()
+        let translation = SCNMatrix4MakeTranslation(origin.x, origin.y, origin.z)
+        let rotation = SCNMatrix4MakeRotation(angle, rotAxis.x, rotAxis.y, rotAxis.z)
+        
+        let m = SCNMatrix4Mult(rotation, translation)
+        let d = fToT.length() / 2
 
         return (d, m)
     }
