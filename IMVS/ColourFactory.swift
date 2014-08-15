@@ -73,4 +73,56 @@ class ColourFactory {
             return Colour(r: 255, g:  20, b: 147) // Unknown
         }
     }
+    
+    /**
+     * Amino acid residue colours (default)
+     * http://life.nthu.edu.tw/~fmhsu/rasframe/COLORS.HTM
+     */
+    class func makeAminoColour(atom: Atom) -> Colour {
+        
+        switch atom.residue {
+        case "ASP" :
+            return Colour(r: 230, g:  10, b:  10)
+        case "GLU" :
+            return Colour(r: 230, g:  10, b:  10)
+        case "LYS" :
+            return Colour(r:  20, g:  90, b: 255)
+        case "ARG" :
+            return Colour(r:  20, g:  90, b: 255)
+        case "PHE" :
+            return Colour(r:  50, g:  50, b: 170)
+        case "TYR" :
+            return Colour(r:  50, g:  50, b: 170)
+        case "GLY" :
+            return Colour(r: 235, g: 235, b: 235)
+        case "ALA" :
+            return Colour(r: 200, g: 200, b: 200)
+        case "HIS" :
+            return Colour(r: 130, g: 130, b: 210)
+        case "CYS" :
+            return Colour(r: 230, g: 230, b:   0)
+        case "MET" :
+            return Colour(r: 230, g: 230, b:   0)
+        case "SER" :
+            return Colour(r: 250, g: 150, b:   0)
+        case "THR" :
+            return Colour(r: 250, g: 150, b:   0)
+        case "ASN" :
+            return Colour(r:   0, g: 220, b: 220)
+        case "GLN" :
+            return Colour(r:   0, g: 220, b: 220)
+        case "LEU" :
+            return Colour(r:  15, g: 130, b:  15)
+        case "VAL" :
+            return Colour(r:  15, g: 130, b:  15)
+        case "ILE" :
+            return Colour(r:  15, g: 130, b:  15)
+        case "TRP" :
+            return Colour(r: 180, g:  90, b: 180)
+        case "PRO" :
+            return Colour(r: 220, g: 150, b: 130)
+        default:
+            return Colour(r: 255, g:  20, b: 147) // Unknown
+        }
+    }
 }
