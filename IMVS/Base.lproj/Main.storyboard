@@ -13,11 +13,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="AeP-GT-tW3">
-                                <rect key="frame" x="99" y="422" width="123" height="29"/>
+                                <rect key="frame" x="60" y="422" width="201" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Balls"/>
                                     <segment title="Sticks"/>
+                                    <segment title="Cartoons"/>
                                 </segments>
                                 <connections>
                                     <action selector="renderModeChanged:" destination="BV1-FR-VrT" eventType="valueChanged" id="NzU-iH-rSa"/>
@@ -30,7 +31,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="590.72000000000003"/>
+            <point key="canvasLocation" x="1320" y="590"/>
+        </scene>
+        <!--Controls View Controller-->
+        <scene sceneID="HPR-N2-dr5">
+            <objects>
+                <viewController storyboardIdentifier="controlsVC" id="KrT-Xs-AAz" customClass="ControlsViewController" customModule="IMVS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mxf-fG-6g2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="8Ii-GQ-YXf">
+                                <rect key="frame" x="99" y="82" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Balls"/>
+                                    <segment title="Sticks"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeRenderStyle:" destination="KrT-Xs-AAz" eventType="valueChanged" id="sNH-7v-iYn"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="TES-VF-sGO">
+                                <rect key="frame" x="99" y="179" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="CPK"/>
+                                    <segment title="Amino"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeColourScheme:" destination="KrT-Xs-AAz" eventType="valueChanged" id="MLB-yL-Anu"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wLD-O8-0Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726" y="590"/>
         </scene>
         <!--Molecule Table View Controller-->
         <scene sceneID="Yns-kD-bbf">
