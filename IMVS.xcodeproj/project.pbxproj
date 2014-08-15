@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F021E801984F76D00CA831C /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F021E7F1984F76D00CA831C /* ControlsViewController.swift */; };
+		1F021E831984FBB000CA831C /* PDBRestWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F021E821984FBB000CA831C /* PDBRestWebService.swift */; };
 		1F09BDC5198060340000AB61 /* 1bbe.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDA8198060340000AB61 /* 1bbe.pdb */; };
 		1F09BDC6198060340000AB61 /* 1CF7.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDA9198060340000AB61 /* 1CF7.pdb */; };
 		1F09BDC7198060340000AB61 /* 1iyu.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDAA198060340000AB61 /* 1iyu.pdb */; };
@@ -47,7 +49,6 @@
 		1F945B60196967A10029948A /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B5F196967A10029948A /* Point3D.swift */; };
 		1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */; };
 		1FE1C93C1981B28000C1AECD /* 1crn.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1C93B1981B28000C1AECD /* 1crn.pdb */; };
-		1FE1C9471981BAA600C1AECD /* MoleculeControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1C9461981BAA600C1AECD /* MoleculeControlViewController.swift */; };
 		1FEB6BC919730035001EFADF /* Residue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BC819730035001EFADF /* Residue.swift */; };
 		1FEB6BCB19730055001EFADF /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCA19730055001EFADF /* Chain.swift */; };
 		1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCC19730C47001EFADF /* ColourFactory.swift */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F021E7F1984F76D00CA831C /* ControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
+		1F021E821984FBB000CA831C /* PDBRestWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBRestWebService.swift; sourceTree = "<group>"; };
 		1F09BDA8198060340000AB61 /* 1bbe.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1bbe.pdb; sourceTree = "<group>"; };
 		1F09BDA9198060340000AB61 /* 1CF7.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CF7.pdb; sourceTree = "<group>"; };
 		1F09BDAA198060340000AB61 /* 1iyu.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1iyu.pdb; sourceTree = "<group>"; };
@@ -117,7 +120,6 @@
 		1F945B5F196967A10029948A /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
 		1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
 		1FE1C93B1981B28000C1AECD /* 1crn.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1crn.pdb; sourceTree = "<group>"; };
-		1FE1C9461981BAA600C1AECD /* MoleculeControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeControlViewController.swift; sourceTree = "<group>"; };
 		1FEB6BC819730035001EFADF /* Residue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Residue.swift; sourceTree = "<group>"; };
 		1FEB6BCA19730055001EFADF /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		1FEB6BCC19730C47001EFADF /* ColourFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourFactory.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F021E811984FB9100CA831C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1F021E821984FBB000CA831C /* PDBRestWebService.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		1F945B261968AA290029948A = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 		1F945B5C1968BD9E0029948A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1F021E811984FB9100CA831C /* Network */,
 				1F945B5D1968BDB10029948A /* PDBLoader.swift */,
 			);
 			name = Data;
@@ -283,7 +294,7 @@
 				1FEB6BD419733C48001EFADF /* Rendering */,
 				1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */,
 				1FEB6BD21973356D001EFADF /* MoleculeTableViewCell.swift */,
-				1FE1C9461981BAA600C1AECD /* MoleculeControlViewController.swift */,
+				1F945B361968AA290029948A /* MoleculeViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -291,11 +302,11 @@
 		1FEB6BD419733C48001EFADF /* Rendering */ = {
 			isa = PBXGroup;
 			children = (
-				1F945B361968AA290029948A /* MoleculeViewController.swift */,
 				1FEB6BCC19730C47001EFADF /* ColourFactory.swift */,
 				1FEB6BCE19730D4B001EFADF /* Colour.swift */,
 				1FEB6BD519735421001EFADF /* RadiusFactory.swift */,
 				1FEB6BD91974813D001EFADF /* RenderFactory.swift */,
+				1F021E7F1984F76D00CA831C /* ControlsViewController.swift */,
 			);
 			name = Rendering;
 			sourceTree = "<group>";
@@ -438,14 +449,15 @@
 				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
 				1FEB6BCB19730055001EFADF /* Chain.swift in Sources */,
 				1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */,
+				1F021E831984FBB000CA831C /* PDBRestWebService.swift in Sources */,
 				1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */,
 				1FEB6BDC19748574001EFADF /* Bond.swift in Sources */,
 				1F945B60196967A10029948A /* Point3D.swift in Sources */,
 				1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */,
 				1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */,
+				1F021E801984F76D00CA831C /* ControlsViewController.swift in Sources */,
 				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
 				1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */,
-				1FE1C9471981BAA600C1AECD /* MoleculeControlViewController.swift in Sources */,
 				1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */,
 				1F945B351968AA290029948A /* AppDelegate.swift in Sources */,
 			);
