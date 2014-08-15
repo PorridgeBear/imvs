@@ -37,7 +37,14 @@ class PeriodicTable {
     ]
     
     func getElementBySymbol(symbol: String) -> Element {
-        return table[symbol] ? table[symbol]! : table["XX"]!
+        
+        var elem = table[symbol]!;
+        
+        if (elem == nil) {
+            elem = table["XX"]!
+        }
+        
+        return elem
     }
 }
 
