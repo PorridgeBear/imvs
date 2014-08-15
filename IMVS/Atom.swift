@@ -17,8 +17,9 @@ class Atom {
     var element: String  = ""
     var position = Point3D()
     var valence: Float = 0.0
+    var remoteness: String = "" // A, B, G, D, E, Z, H
     
-    init(id: String, name: String, residue: String, chain: String, element: String, x: Float, y: Float, z: Float) {
+    init(id: String, name: String, residue: String, chain: String, element: String, x: Float, y: Float, z: Float, remoteness: String) {
         
         self.id = id
         self.name = name
@@ -29,5 +30,7 @@ class Atom {
         position.x = x
         position.y = y
         position.z = z
+        
+        self.remoteness = remoteness
     }
 }
