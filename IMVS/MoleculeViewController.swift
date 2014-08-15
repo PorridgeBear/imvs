@@ -16,6 +16,7 @@ class MoleculeViewController: UIViewController {
     var pdbFile: String = ""
     
     var scene = SCNScene()
+    var cameraNode = SCNNode()
     var molNode = SCNNode()
     
     override func viewDidLoad() {
@@ -26,8 +27,8 @@ class MoleculeViewController: UIViewController {
         pdbLoader.loadMoleculeForPath(pdbFile)
         self.title = pdbLoader.molecule.name
 
-        let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
+        cameraNode.camera.zNear = 0.1
         cameraNode.position = SCNVector3(x: 0, y: 0, z: pdbLoader.molecule.maxN * 3)
         scene.rootNode.addChildNode(cameraNode)
  
@@ -63,16 +64,34 @@ class MoleculeViewController: UIViewController {
         let scnView = self.view as SCNView
         scnView.scene = scene
         scnView.allowsCameraControl = true
+        scnView.pointOfView = cameraNode
         // scnView.showsStatistics = true
         scnView.backgroundColor = UIColor.blackColor()
         
-        /* add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        // Controls
         let gestureRecognizers = NSMutableArray()
+        let tapGesture = UITapGestureRecognizer(target: self, action: "showControls")
+        let pinchGesture = UIPinchGestureRecognizer(target:self, action: "handlePinch");
         gestureRecognizers.addObject(tapGesture)
+        gestureRecognizers.addObject(pinchGesture)
         gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers)
         scnView.gestureRecognizers = gestureRecognizers
-        */
+    }
+    
+    func showControls() {
+//        let controlsVC = ControlsViewController()
+//        self.presentViewController(controlsVC, animated: true, completion: nil)
+        let vc : ControlsViewController = self.storyboard.instantiateViewControllerWithIdentifier("controlsVC") as ControlsViewController
+        //self.showViewController(vc as UIViewController, sender: vc)
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func handlePinch(pinch: UIPinchGestureRecognizer) {
+
+        var z = (self.cameraNode.position.z) * (1 / Float(pinch.scale));
+        z = fmaxf(1.0, z)
+        z = fminf(4.0, z)
+        self.cameraNode.position = SCNVector3Make(0, 0, z)
     }
     
     @IBAction func renderModeChanged(sender: UISegmentedControl) {
@@ -86,6 +105,8 @@ class MoleculeViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 1:
             RenderFactory.createSticks(pdbLoader.molecule, molNode: molNode)
+        case 2:
+            RenderFactory.createCartoons(pdbLoader.molecule, molNode: molNode)
         default:
             RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         }
