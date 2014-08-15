@@ -36,4 +36,27 @@ class Residue {
 
         atoms.append(atom)
     }
+    
+    func getAlphaCarbon() -> Atom? {
+        
+        for atom in atoms {
+            if atom.element == "C" && atom.remoteness == "A" {
+                return atom
+            }
+        }
+        
+        return nil
+    }
+    
+    /** TODO - Might not be 100% right grabbing the first O - check */
+    func getCarbonylOxygen() -> Atom? {
+        
+        for atom in atoms {
+            if atom.element == "O" {
+                return atom
+            }
+        }
+        
+        return nil
+    }
 }
