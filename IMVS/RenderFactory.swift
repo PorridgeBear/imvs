@@ -11,6 +11,142 @@ import SceneKit
 
 class RenderFactory {
     
+    /**
+     * Currently just ribbons (algorithm by Carson & Bugg 1986)
+     */
+    class func createCartoons(molecule: Molecule, molNode: SCNNode) {
+        
+        var cartoons = SCNNode()
+        
+        var a = SCNVector3Zero,
+            b = SCNVector3Zero,
+            c = SCNVector3Zero,
+            d = SCNVector3Zero,
+            dPrev = SCNVector3Zero
+        
+        for chain in molecule.chains {
+            
+            var guideCoordsN: [SCNVector3] = [],
+                guideCoordsP: [SCNVector3] = []
+            
+            println("Num residues \(chain.residues.count)")
+            
+            for var ri = 0; ri < chain.residues.count - 1; ri++ {
+                
+                let resCurr = chain.residues[ri];
+                let resNext = chain.residues[ri + 1];
+                
+                // 1. Define the peptide plane
+                
+                let caCurr = resCurr.getAlphaCarbon()
+                let oxCurr = resCurr.getCarbonylOxygen()
+                let caNext = resNext.getAlphaCarbon()
+                let oxNext = resNext.getCarbonylOxygen()
+                
+                if caCurr == nil || oxCurr == nil || caNext == nil || oxNext == nil {
+                    continue
+                }
+                
+                a.x = caNext!.position.x - caCurr!.position.x
+                a.y = caNext!.position.y - caCurr!.position.y
+                a.z = caNext!.position.z - caCurr!.position.z
+                
+                // c = normal to peptide plane pointing away from helix axis
+                c = a.cross(b)
+                
+                // d = lies parallel to peptide plane and perpendicular to a
+                d = c.cross(a)
+                
+                c.normalize()
+                d.normalize()
+                
+                // 2. Generate guide coordinates
+                
+                var p = SCNVector3(
+                    x: (caCurr!.position.x + caNext!.position.x) / 2.0,
+                    y: (caCurr!.position.y + caNext!.position.y) / 2.0,
+                    z: (caCurr!.position.z + caNext!.position.z) / 2.0)
+
+                /* translate helices away from axis for more room
+                if (residueThis.isHelixPart()) {
+                    c.scale(RIBBON_WIDTH_HELIX);
+                    p.add(c);
+                }
+                */
+                
+                /* scale sheets down
+                if (residueThis.isSheetPart()) {
+                    d.scale(1 / RIBBON_WIDTH_SHEET);
+                }
+                */
+                
+                // handle carbonyl oxygen flip
+                var d2 = SCNVector3Zero
+                
+                if ri > 0 && dPrev.dot(d) < 0 {
+                    d2.x = -d.x
+                    d2.y = -d.y
+                    d2.z = -d.z
+                } else {
+                    d2.x = d.x
+                    d2.y = d.y
+                    d2.z = d.z
+                }
+                
+                dPrev.x = d2.x
+                dPrev.y = d2.y
+                dPrev.z = d2.z
+                
+                // create and store points
+                
+                var pP = SCNVector3(x: p.x, y: p.y, z: p.z) + SCNVector3Make(1, 1, 1) // + d2
+                var pN = SCNVector3(x: p.x, y: p.y, z: p.z) - SCNVector3Make(1, 1, 1) // - d2
+                
+                guideCoordsN.append(pN)
+                guideCoordsP.append(pP)
+                
+                // 3. construct ribbon geometry
+                
+                for p in guideCoordsN {
+                    
+                    let material = SCNMaterial()
+                    material.diffuse.contents = UIColor(red: CGFloat(155) / 255.0, green: CGFloat(155) / 255.0, blue: CGFloat(155) / 255.0, alpha: 1)
+                    material.lightingModelName = SCNLightingModelLambert
+                    material.locksAmbientWithDiffuse = true
+                    
+                    let atomNode = SCNNode()
+                    atomNode.position = SCNVector3(
+                        x: p.x - molecule.center.x,
+                        y: p.y - molecule.center.y,
+                        z: p.z - molecule.center.z)
+                    atomNode.geometry = SCNSphere(radius: 0.2)
+                    atomNode.geometry.firstMaterial = material
+                    cartoons.addChildNode(atomNode)
+                }
+                
+                for p in guideCoordsP {
+                    
+                    let material = SCNMaterial()
+                    material.diffuse.contents = UIColor(red: CGFloat(0) / 255.0, green: CGFloat(155) / 255.0, blue: CGFloat(155) / 255.0, alpha: 1)
+                    material.lightingModelName = SCNLightingModelLambert
+                    material.locksAmbientWithDiffuse = true
+                    
+                    let atomNode = SCNNode()
+                    atomNode.position = SCNVector3(
+                        x: p.x - molecule.center.x,
+                        y: p.y - molecule.center.y,
+                        z: p.z - molecule.center.z)
+                    atomNode.geometry = SCNSphere(radius: 0.2)
+                    atomNode.geometry.firstMaterial = material
+                    cartoons.addChildNode(atomNode)
+                }
+
+            }
+        }
+        
+        molNode.addChildNode(cartoons)
+    }
+    
     class func createBalls(molecule: Molecule, molNode: SCNNode, forceSize: Float) {
         
         for chain in molecule.chains {
