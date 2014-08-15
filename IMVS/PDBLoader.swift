@@ -29,8 +29,8 @@ class PDBLoader {
     }
     
     func getDataForColumnsInLine(line: String, from: Int, to: Int) -> String {
-        let tmp = line.bridgeToObjectiveC().substringFromIndex(from - 1)
-        return tmp.bridgeToObjectiveC().substringToIndex(to - from + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let tmp = (line as NSString).substringFromIndex(from - 1)
+        return (tmp as NSString).substringToIndex(to - from + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
     }
     
     func isRecordTypeEqualTo(to: String, line: String) -> Bool {
@@ -57,6 +57,7 @@ class PDBLoader {
             
             let name = getDataForColumnsInLine(line, from: 13, to: 16)
             let element = getDataForColumnsInLine(line, from: 13, to: 14)
+            let remoteness = getDataForColumnsInLine(line, from: 15, to: 15)
             
             let residue = getDataForColumnsInLine(line, from: 18, to: 20)
             let chain = getDataForColumnsInLine(line, from: 22, to: 22)
@@ -65,7 +66,7 @@ class PDBLoader {
             let y = (getDataForColumnsInLine(line, from: 39, to: 46) as NSString).floatValue
             let z = (getDataForColumnsInLine(line, from: 47, to: 54) as NSString).floatValue
             
-            let atom = Atom(id: id, name: name, residue: residue, chain: chain, element: element, x: x, y: y, z: z)
+            let atom = Atom(id: id, name: name, residue: residue, chain: chain, element: element, x: x, y: y, z: z, remoteness: remoteness)
             
             molecule.addAtom(atom)
         }
