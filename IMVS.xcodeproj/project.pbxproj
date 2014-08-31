@@ -38,6 +38,8 @@
 		1F09BDDF198060340000AB61 /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC2198060340000AB61 /* streptomycin.pdb */; };
 		1F09BDE0198060340000AB61 /* trp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC3198060340000AB61 /* trp.pdb */; };
 		1F09BDE1198060340000AB61 /* zdna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC4198060340000AB61 /* zdna.pdb */; };
+		1F33775619AFECCF00D00068 /* Octree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33775519AFECCF00D00068 /* Octree.swift */; };
+		1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BB60819B27A1700BBD036 /* AtomCloud.swift */; };
 		1F945B351968AA290029948A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B341968AA290029948A /* AppDelegate.swift */; };
 		1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B361968AA290029948A /* MoleculeViewController.swift */; };
 		1F945B3A1968AA290029948A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F945B381968AA290029948A /* Main.storyboard */; };
@@ -104,6 +106,8 @@
 		1F09BDC2198060340000AB61 /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
 		1F09BDC3198060340000AB61 /* trp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trp.pdb; sourceTree = "<group>"; };
 		1F09BDC4198060340000AB61 /* zdna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zdna.pdb; sourceTree = "<group>"; };
+		1F33775519AFECCF00D00068 /* Octree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octree.swift; sourceTree = "<group>"; };
+		1F5BB60819B27A1700BBD036 /* AtomCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomCloud.swift; sourceTree = "<group>"; };
 		1F945B2F1968AA290029948A /* IMVS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F945B331968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F945B341968AA290029948A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +117,6 @@
 		1F945B411968AA290029948A /* IMVSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMVSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F945B461968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F945B471968AA290029948A /* IMVSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMVSTests.swift; sourceTree = "<group>"; };
-		1F945B541968B7260029948A /* PlaygroundPDB.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PlaygroundPDB.playground; sourceTree = "<group>"; };
 		1F945B581968BD810029948A /* Molecule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Molecule.swift; sourceTree = "<group>"; };
 		1F945B5A1968BD960029948A /* Atom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		1F945B5D1968BDB10029948A /* PDBLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBLoader.swift; sourceTree = "<group>"; };
@@ -184,7 +187,6 @@
 				1FEB6B7B1972EB3D001EFADF /* View */,
 				1F945B5C1968BD9E0029948A /* Data */,
 				1F945B571968BD6B0029948A /* Model */,
-				1F945B541968B7260029948A /* PlaygroundPDB.playground */,
 				1F945B341968AA290029948A /* AppDelegate.swift */,
 				1F945B381968AA290029948A /* Main.storyboard */,
 				1F945B3B1968AA290029948A /* Images.xcassets */,
@@ -224,12 +226,14 @@
 			children = (
 				1F945B581968BD810029948A /* Molecule.swift */,
 				1F945B5A1968BD960029948A /* Atom.swift */,
+				1F5BB60819B27A1700BBD036 /* AtomCloud.swift */,
 				1F945B5F196967A10029948A /* Point3D.swift */,
 				1FEB6BC819730035001EFADF /* Residue.swift */,
 				1FEB6BCA19730055001EFADF /* Chain.swift */,
 				1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */,
 				1FEB6BDB19748574001EFADF /* Bond.swift */,
 				1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */,
+				1F33775519AFECCF00D00068 /* Octree.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -446,6 +450,7 @@
 				1FEB6BDA1974813D001EFADF /* RenderFactory.swift in Sources */,
 				1FEB6BD619735421001EFADF /* RadiusFactory.swift in Sources */,
 				1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */,
+				1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */,
 				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
 				1FEB6BCB19730055001EFADF /* Chain.swift in Sources */,
 				1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */,
@@ -454,6 +459,7 @@
 				1FEB6BDC19748574001EFADF /* Bond.swift in Sources */,
 				1F945B60196967A10029948A /* Point3D.swift in Sources */,
 				1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */,
+				1F33775619AFECCF00D00068 /* Octree.swift in Sources */,
 				1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */,
 				1F021E801984F76D00CA831C /* ControlsViewController.swift in Sources */,
 				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
