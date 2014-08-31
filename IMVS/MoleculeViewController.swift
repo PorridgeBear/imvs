@@ -51,6 +51,7 @@ class MoleculeViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+        //RenderFactory.overlayCubes(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         scene.rootNode.addChildNode(molNode)
         
         /* animate the 3d object
@@ -70,20 +71,64 @@ class MoleculeViewController: UIViewController {
         
         // Controls
         let gestureRecognizers = NSMutableArray()
-        let tapGesture = UITapGestureRecognizer(target: self, action: "showControls")
-        let pinchGesture = UIPinchGestureRecognizer(target:self, action: "handlePinch");
+        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        let pinchGesture = UIPinchGestureRecognizer(target:self, action: "handlePinch:");
         gestureRecognizers.addObject(tapGesture)
         gestureRecognizers.addObject(pinchGesture)
         gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers)
         scnView.gestureRecognizers = gestureRecognizers
     }
     
-    func showControls() {
+    func handleTap(tap: UITapGestureRecognizer) {
+        
+        let scnView = self.view as SCNView
+        
+        var point = tap.locationInView(scnView)
+        var hitResults = scnView.hitTest(point, options: nil)
+        
+        if hitResults.count > 0 {
+            
+            var result: SCNHitTestResult = hitResults[0] as SCNHitTestResult
+            println(result.node.name)
+        }
+        
+        /*
+        // check that we clicked on at least one object
+        if([hitResults count] > 0){
+            // retrieved the first clicked object
+            SCNHitTestResult *result = [hitResults objectAtIndex:0];
+            
+            // get its material
+            SCNMaterial *material = result.node.geometry.firstMaterial;
+            
+            // highlight it
+            [SCNTransaction begin];
+            [SCNTransaction setAnimationDuration:0.5];
+            
+            // on completion - unhighlight
+            [SCNTransaction setCompletionBlock:^{
+                [SCNTransaction begin];
+                [SCNTransaction setAnimationDuration:0.5];
+                
+                material.emission.contents = [UIColor blackColor];
+                
+                [SCNTransaction commit];
+                }];
+            
+            material.emission.contents = [UIColor redColor];
+            
+            [SCNTransaction commit];
+        */
+        
+        /*
+        
 //        let controlsVC = ControlsViewController()
 //        self.presentViewController(controlsVC, animated: true, completion: nil)
         let vc : ControlsViewController = self.storyboard.instantiateViewControllerWithIdentifier("controlsVC") as ControlsViewController
         //self.showViewController(vc as UIViewController, sender: vc)
         self.presentViewController(vc, animated: true, completion: nil)
+    */
+        
     }
     
     func handlePinch(pinch: UIPinchGestureRecognizer) {
@@ -110,6 +155,8 @@ class MoleculeViewController: UIViewController {
         default:
             RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         }
+        
+        //RenderFactory.overlayCubes(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         
         scene.rootNode.addChildNode(molNode)
     }
