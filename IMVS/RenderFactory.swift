@@ -162,6 +162,7 @@ class RenderFactory {
                     material.locksAmbientWithDiffuse = true
                     
                     let atomNode = SCNNode()
+                    atomNode.name = "id=\(atom.id) \(atom.name)"
                     atomNode.position = SCNVector3(
                         x: atom.position.x - molecule.center.x,
                         y: atom.position.y - molecule.center.y,
@@ -241,6 +242,50 @@ class RenderFactory {
         let d = fToT.length() / 2
 
         return (d, m)
+    }
+    
+    class func overlayCubes(molecule: Molecule, molNode: SCNNode, forceSize: Float) {
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.redColor()
+        material.lightingModelName = SCNLightingModelLambert
+        material.locksAmbientWithDiffuse = true
+        
+        for cloud in molecule.clouds {
+            
+            for (index, cube) in cloud.grid {
+                
+                let cubeNode = SCNNode()
+                cubeNode.opacity = 0.5
+                cubeNode.position = SCNVector3(
+                    x: cube.wx - molecule.center.x,
+                    y: cube.wy - molecule.center.y,
+                    z: cube.wz - molecule.center.z)
+                cubeNode.geometry = SCNBox(width: CGFloat(cube.w), height: CGFloat(cube.h), length: CGFloat(cube.l), chamferRadius: 0.0)
+                cubeNode.geometry.firstMaterial = material
+                molNode.addChildNode(cubeNode)
+
+                /*
+                for atom in cube.objects {
+                    
+                    let material = SCNMaterial()
+                    let colour = ColourFactory.makeCPKColour(atom)
+                    material.diffuse.contents = UIColor(red: CGFloat(colour.r) / 255.0, green: CGFloat(colour.g) / 255.0, blue: CGFloat(colour.b) / 255.0, alpha: 1)
+                    material.lightingModelName = SCNLightingModelLambert
+                    material.locksAmbientWithDiffuse = true
+                    
+                    let atomNode = SCNNode()
+                    atomNode.position = SCNVector3(
+                        x: atom.position.x - molecule.center.x,
+                        y: atom.position.y - molecule.center.y,
+                        z: atom.position.z - molecule.center.z)
+                    atomNode.geometry = SCNSphere(radius: CGFloat(forceSize <= 0.0 ? SizeFactory.makeCovalentSize(atom) + 0.5 : forceSize))
+                    atomNode.geometry.firstMaterial = material
+                    molNode.addChildNode(atomNode)
+                }
+                */
+            }
+        }
     }
     
 //    class func computeBondHeightAndTransform(f: Atom, t: Atom) -> (height: Float, transform: SCNMatrix4) {
