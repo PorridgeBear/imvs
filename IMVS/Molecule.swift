@@ -34,6 +34,8 @@ class Molecule {
     var helices: [SecondaryStructure] = []
     var sheets: [SecondaryStructure] = []
     var turns: [SecondaryStructure] = []
+    
+    var clouds: [AtomCloud] = []
         
     func addAtom(atom: Atom) {
         
@@ -120,66 +122,69 @@ class Molecule {
      */
     func createBonds() {
         
-        var atoms: [Atom] = []
-        
-        for var ci = 0; ci < chains.count; ci++ {
-            for var ri = 0; ri < chains[ci].residues.count; ri++ {
-                for var ai = 0; ai < chains[ci].residues[ri].atoms.count; ai++ {
-                    atoms.append(chains[ci].residues[ri].atoms[ai])
-                }
-            }
-        }
-        
-        // Need to figure out Octree implementation, for now use JMVS strategy
-        // of per-residue per-chain bonding, then other special bonds (disulphide bridges,
+        // Need to figure out better implementation, for now:
+        // per-chain bonding, then other special bonds (disulphide bridges,
         // polypeptide chains and sugar phosphates)
         
-        println("Creating bonds for \(atoms.count) atoms")
+        println("Creating bonds")
         
         for chain in chains {
+            
+            println("Chain \(chain.id)");
+            
+            var cloud = AtomCloud(cubeLength: 1.83)
             
             for residue in chain.residues {
                 
                 for var i = 0; i < residue.atoms.count; i++ {
                     
-                    for var j = i + 1; j < residue.atoms.count; j++ {
-                        
-                        let src = atoms[i]
-                        let dst = atoms[j]
-                        
-                        if src.id == dst.id {
-                            continue
-                        }
-                        
-                        if doesBondExist(src, dst: dst) {
-                            continue
-                        }
-                        
-                        // Find distance between 2 atoms using Pythagoras
-                        let a = src.position.x - dst.position.x
-                        let b = src.position.y - dst.position.y
-                        let c = src.position.z - dst.position.z
-                        let d = sqrt(a * a + b * b + c * c)
-                        
-                        let max: Float = src.valence + dst.valence + 0.56
-                        if d >= 0.4 && d <= max {
-                            let bond = Bond(src: src, dst: dst)
-                            bonds.append(bond)
-                        }
-                        
-                        /* RasMol quick bonding method
-                        var upperLimit: Float = doesBondIncludeHydrogen(src, dst: dst) ? 1.2 : 1.9
-                        if d >= 0.4 && d <= upperLimit {
-                            let bond = Bond(src: src, dst: dst)
-                            bonds.append(bond)
-                        }
-                        */
-                    }
+                    cloud.insert(residue.atoms[i])
                 }
             }
+            
+            clouds.append(cloud)
+            doBonds(cloud, chain: chain)
         }
         
         println("Created \(bonds.count) bonds.")
+    }
+    
+    func doBonds(cloud: AtomCloud, chain: Chain) {
+
+        for residue in chain.residues {
+            
+            for src in residue.atoms {
+                
+                let nearests = cloud.nearest(src)
+                
+                for dst in nearests {
+                
+                    if doesBondExist(src, dst: dst) {
+                        continue
+                    }
+                    
+                    // Find distance between 2 atoms using Pythagoras
+                    let a = src.position.x - dst.position.x
+                    let b = src.position.y - dst.position.y
+                    let c = src.position.z - dst.position.z
+                    let d = sqrt(a * a + b * b + c * c)
+                    
+                    let max: Float = src.valence + dst.valence + 0.56
+                    if d >= 0.4 && d <= max {
+                        let bond = Bond(src: src, dst: dst)
+                        bonds.append(bond)
+                    }
+                    
+                    /* RasMol quick bonding method
+                    var upperLimit: Float = doesBondIncludeHydrogen(src, dst: dst) ? 1.2 : 1.9
+                    if d >= 0.4 && d <= upperLimit {
+                    let bond = Bond(src: src, dst: dst)
+                    bonds.append(bond)
+                    }
+                    */
+                }
+            }
+        }
     }
     
     func doesBondIncludeHydrogen(src: Atom, dst: Atom) -> Bool {
