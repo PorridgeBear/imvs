@@ -38,13 +38,13 @@ class PeriodicTable {
     
     func getElementBySymbol(symbol: String) -> Element {
         
-        var elem = table[symbol]!;
+        var elem = table[symbol];
         
         if (elem == nil) {
             elem = table["XX"]!
         }
         
-        return elem
+        return elem!
     }
 }
 
