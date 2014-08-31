@@ -77,13 +77,13 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
 
-        var cell: MoleculeTableViewCell = tableView.dequeueReusableCellWithIdentifier("MolCell") as MoleculeTableViewCell
+        var cell: MoleculeTableViewCell? = tableView.dequeueReusableCellWithIdentifier("MolCell") as MoleculeTableViewCell
         
         if cell == nil {
             cell = MoleculeTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MolCell")
         }
         
-        cell.nameLabel!.text = self.pdbFileList[indexPath.row]
+        cell!.nameLabel!.text = self.pdbFileList[indexPath.row]
         
         return cell
     }
@@ -91,7 +91,7 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 50.0;
     }
-    
+        
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
         if (segue.identifier == "RenderMolecule") {
