@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F021E801984F76D00CA831C /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F021E7F1984F76D00CA831C /* ControlsViewController.swift */; };
 		1F021E831984FBB000CA831C /* PDBRestWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F021E821984FBB000CA831C /* PDBRestWebService.swift */; };
 		1F09BDC5198060340000AB61 /* 1bbe.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDA8198060340000AB61 /* 1bbe.pdb */; };
 		1F09BDC6198060340000AB61 /* 1CF7.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDA9198060340000AB61 /* 1CF7.pdb */; };
@@ -38,6 +37,13 @@
 		1F09BDDF198060340000AB61 /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC2198060340000AB61 /* streptomycin.pdb */; };
 		1F09BDE0198060340000AB61 /* trp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC3198060340000AB61 /* trp.pdb */; };
 		1F09BDE1198060340000AB61 /* zdna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC4198060340000AB61 /* zdna.pdb */; };
+		1F2713EF19BB9F89006A5D34 /* colour-amino.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2713EB19BB9F89006A5D34 /* colour-amino.png */; };
+		1F2713F019BB9F89006A5D34 /* colour-cpk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2713EC19BB9F89006A5D34 /* colour-cpk.png */; };
+		1F2713F119BB9F89006A5D34 /* mode-balls.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2713ED19BB9F89006A5D34 /* mode-balls.png */; };
+		1F2713F219BB9F89006A5D34 /* mode-sticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2713EE19BB9F89006A5D34 /* mode-sticks.png */; };
+		1F2713F819BBA1B4006A5D34 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F2713F719BBA1B4006A5D34 /* menu.png */; };
+		1F2713FA19BBA6DD006A5D34 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2713F919BBA6DD006A5D34 /* ControlsViewController.swift */; };
+		1F2713FC19BBA929006A5D34 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2713FB19BBA929006A5D34 /* State.swift */; };
 		1F33775619AFECCF00D00068 /* Octree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33775519AFECCF00D00068 /* Octree.swift */; };
 		1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BB60819B27A1700BBD036 /* AtomCloud.swift */; };
 		1F945B351968AA290029948A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B341968AA290029948A /* AppDelegate.swift */; };
@@ -75,7 +81,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F021E7F1984F76D00CA831C /* ControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
 		1F021E821984FBB000CA831C /* PDBRestWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBRestWebService.swift; sourceTree = "<group>"; };
 		1F09BDA8198060340000AB61 /* 1bbe.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1bbe.pdb; sourceTree = "<group>"; };
 		1F09BDA9198060340000AB61 /* 1CF7.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1CF7.pdb; sourceTree = "<group>"; };
@@ -106,6 +111,13 @@
 		1F09BDC2198060340000AB61 /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
 		1F09BDC3198060340000AB61 /* trp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trp.pdb; sourceTree = "<group>"; };
 		1F09BDC4198060340000AB61 /* zdna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zdna.pdb; sourceTree = "<group>"; };
+		1F2713EB19BB9F89006A5D34 /* colour-amino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colour-amino.png"; sourceTree = "<group>"; };
+		1F2713EC19BB9F89006A5D34 /* colour-cpk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colour-cpk.png"; sourceTree = "<group>"; };
+		1F2713ED19BB9F89006A5D34 /* mode-balls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mode-balls.png"; sourceTree = "<group>"; };
+		1F2713EE19BB9F89006A5D34 /* mode-sticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mode-sticks.png"; sourceTree = "<group>"; };
+		1F2713F719BBA1B4006A5D34 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		1F2713F919BBA6DD006A5D34 /* ControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
+		1F2713FB19BBA929006A5D34 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1F33775519AFECCF00D00068 /* Octree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octree.swift; sourceTree = "<group>"; };
 		1F5BB60819B27A1700BBD036 /* AtomCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomCloud.swift; sourceTree = "<group>"; };
 		1F945B2F1968AA290029948A /* IMVS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +210,11 @@
 		1F945B321968AA290029948A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F2713F719BBA1B4006A5D34 /* menu.png */,
+				1F2713EB19BB9F89006A5D34 /* colour-amino.png */,
+				1F2713EC19BB9F89006A5D34 /* colour-cpk.png */,
+				1F2713ED19BB9F89006A5D34 /* mode-balls.png */,
+				1F2713EE19BB9F89006A5D34 /* mode-sticks.png */,
 				1FEB6B741972E7A0001EFADF /* pdb */,
 				1F945B331968AA290029948A /* Info.plist */,
 			);
@@ -234,6 +251,7 @@
 				1FEB6BDB19748574001EFADF /* Bond.swift */,
 				1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */,
 				1F33775519AFECCF00D00068 /* Octree.swift */,
+				1F2713FB19BBA929006A5D34 /* State.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -310,7 +328,7 @@
 				1FEB6BCE19730D4B001EFADF /* Colour.swift */,
 				1FEB6BD519735421001EFADF /* RadiusFactory.swift */,
 				1FEB6BD91974813D001EFADF /* RenderFactory.swift */,
-				1F021E7F1984F76D00CA831C /* ControlsViewController.swift */,
+				1F2713F919BBA6DD006A5D34 /* ControlsViewController.swift */,
 			);
 			name = Rendering;
 			sourceTree = "<group>";
@@ -399,10 +417,13 @@
 				1F09BDD4198060340000AB61 /* fullerene.pdb in Resources */,
 				1F945B3A1968AA290029948A /* Main.storyboard in Resources */,
 				1F09BDDE198060340000AB61 /* plp.pdb in Resources */,
+				1F2713F819BBA1B4006A5D34 /* menu.png in Resources */,
 				1F09BDC8198060340000AB61 /* 1pse.pdb in Resources */,
 				1F09BDDF198060340000AB61 /* streptomycin.pdb in Resources */,
+				1F2713EF19BB9F89006A5D34 /* colour-amino.png in Resources */,
 				1F09BDD1198060340000AB61 /* cys.pdb in Resources */,
 				1F09BDE1198060340000AB61 /* zdna.pdb in Resources */,
+				1F2713F219BB9F89006A5D34 /* mode-sticks.png in Resources */,
 				1F09BDCF198060340000AB61 /* benzene.pdb in Resources */,
 				1F09BDDB198060340000AB61 /* nacl.pdb in Resources */,
 				1F09BDC6198060340000AB61 /* 1CF7.pdb in Resources */,
@@ -417,10 +438,12 @@
 				1F09BDDC198060340000AB61 /* octane.pdb in Resources */,
 				1F09BDD8198060340000AB61 /* hemeo2.pdb in Resources */,
 				1F09BDD2198060340000AB61 /* diamond.pdb in Resources */,
+				1F2713F019BB9F89006A5D34 /* colour-cpk.png in Resources */,
 				1F09BDCD198060340000AB61 /* atp.pdb in Resources */,
 				1F09BDD7198060340000AB61 /* hemeco.pdb in Resources */,
 				1F09BDC5198060340000AB61 /* 1bbe.pdb in Resources */,
 				1F09BDD5198060340000AB61 /* gc-zdna.pdb in Resources */,
+				1F2713F119BB9F89006A5D34 /* mode-balls.png in Resources */,
 				1F09BDD9198060340000AB61 /* igg1-cac.pdb in Resources */,
 				1FE1C93C1981B28000C1AECD /* 1crn.pdb in Resources */,
 				1F09BDDD198060340000AB61 /* pcl5.pdb in Resources */,
@@ -453,6 +476,7 @@
 				1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */,
 				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
 				1FEB6BCB19730055001EFADF /* Chain.swift in Sources */,
+				1F2713FC19BBA929006A5D34 /* State.swift in Sources */,
 				1F945B5E1968BDB10029948A /* PDBLoader.swift in Sources */,
 				1F021E831984FBB000CA831C /* PDBRestWebService.swift in Sources */,
 				1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */,
@@ -460,8 +484,8 @@
 				1F945B60196967A10029948A /* Point3D.swift in Sources */,
 				1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */,
 				1F33775619AFECCF00D00068 /* Octree.swift in Sources */,
+				1F2713FA19BBA6DD006A5D34 /* ControlsViewController.swift in Sources */,
 				1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */,
-				1F021E801984F76D00CA831C /* ControlsViewController.swift in Sources */,
 				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
 				1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */,
 				1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */,
