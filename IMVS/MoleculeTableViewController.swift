@@ -34,13 +34,13 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
     
     var pdbFileList: [String] = [
         "1crn",
+        "132l",
         "ala",
         "atp",
         "benzene",
         "cys",
         "dna",
-        "octane",
-        "trp"
+        "fullerene"
     ];
     
     override func viewDidLoad() {
@@ -67,15 +67,16 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
         */
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return pdbFileList.count
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var cell: MoleculeTableViewCell? = tableView.dequeueReusableCellWithIdentifier("MolCell") as MoleculeTableViewCell
         
@@ -85,7 +86,7 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
         
         cell!.nameLabel!.text = self.pdbFileList[indexPath.row]
         
-        return cell
+        return cell!
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
@@ -98,7 +99,7 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
             
             let viewController:MoleculeViewController = segue!.destinationViewController as MoleculeViewController
             let indexPath = self.tableView.indexPathForSelectedRow()
-            viewController.pdbFile = self.pdbFileList[indexPath.row]
+            viewController.pdbFile = self.pdbFileList[indexPath!.row]
         }
     }
 }

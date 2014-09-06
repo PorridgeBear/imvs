@@ -15,6 +15,7 @@ class MoleculeViewController: UIViewController {
     let pdbLoader = PDBLoader()
     var pdbFile: String = ""
     
+    var state = State()
     var scene = SCNScene()
     var cameraNode = SCNNode()
     var molNode = SCNNode()
@@ -28,39 +29,36 @@ class MoleculeViewController: UIViewController {
         self.title = pdbLoader.molecule.name
 
         cameraNode.camera = SCNCamera()
-        cameraNode.camera.zNear = 0.1
+        cameraNode.camera!.zNear = 0.1
         cameraNode.position = SCNVector3(x: 0, y: 0, z: pdbLoader.molecule.maxN * 3)
         scene.rootNode.addChildNode(cameraNode)
  
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
-        lightNode.light.type = SCNLightTypeOmni
+        lightNode.light!.type = SCNLightTypeOmni
         lightNode.position = SCNVector3(x: 0, y: 0, z: pdbLoader.molecule.maxN)
         scene.rootNode.addChildNode(lightNode)
         
         let lightNode2 = SCNNode()
         lightNode2.light = SCNLight()
-        lightNode2.light.type = SCNLightTypeOmni
+        lightNode2.light!.type = SCNLightTypeOmni
         lightNode2.position = SCNVector3(x: 0, y: 0, z: -pdbLoader.molecule.maxN)
         scene.rootNode.addChildNode(lightNode2)
         
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
-        ambientLightNode.light.type = SCNLightTypeAmbient
-        ambientLightNode.light.color = UIColor.darkGrayColor()
+        ambientLightNode.light!.type = SCNLightTypeAmbient
+        ambientLightNode.light!.color = UIColor.darkGrayColor()
         scene.rootNode.addChildNode(ambientLightNode)
         
-        RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
-        //RenderFactory.overlayCubes(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
-        scene.rootNode.addChildNode(molNode)
+        switch state.mode {
+        case .Sticks:
+            RenderFactory.createSticks(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
+        default:
+            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+        }
         
-        /* animate the 3d object
-        let animation: CABasicAnimation = CABasicAnimation(keyPath: "rotation")
-        animation.toValue = NSValue(SCNVector4: SCNVector4(x: 1, y: 1, z: 0, w: Float(M_PI)*2))
-        animation.duration = 5
-        animation.repeatCount = MAXFLOAT //repeat forever
-        boxNode.addAnimation(animation, forKey: nil)
-        */
+        scene.rootNode.addChildNode(molNode)
         
         let scnView = self.view as SCNView
         scnView.scene = scene
@@ -75,10 +73,13 @@ class MoleculeViewController: UIViewController {
         let pinchGesture = UIPinchGestureRecognizer(target:self, action: "handlePinch:");
         gestureRecognizers.addObject(tapGesture)
         gestureRecognizers.addObject(pinchGesture)
-        gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers)
+        gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers!)
         scnView.gestureRecognizers = gestureRecognizers
     }
     
+    /**
+     * Tap to pick - just logs atom name to console currently
+     */
     func handleTap(tap: UITapGestureRecognizer) {
         
         let scnView = self.view as SCNView
@@ -86,51 +87,16 @@ class MoleculeViewController: UIViewController {
         var point = tap.locationInView(scnView)
         var hitResults = scnView.hitTest(point, options: nil)
         
-        if hitResults.count > 0 {
+        if hitResults!.count > 0 {
             
-            var result: SCNHitTestResult = hitResults[0] as SCNHitTestResult
+            var result: SCNHitTestResult = hitResults![0] as SCNHitTestResult
             println(result.node.name)
         }
-        
-        /*
-        // check that we clicked on at least one object
-        if([hitResults count] > 0){
-            // retrieved the first clicked object
-            SCNHitTestResult *result = [hitResults objectAtIndex:0];
-            
-            // get its material
-            SCNMaterial *material = result.node.geometry.firstMaterial;
-            
-            // highlight it
-            [SCNTransaction begin];
-            [SCNTransaction setAnimationDuration:0.5];
-            
-            // on completion - unhighlight
-            [SCNTransaction setCompletionBlock:^{
-                [SCNTransaction begin];
-                [SCNTransaction setAnimationDuration:0.5];
-                
-                material.emission.contents = [UIColor blackColor];
-                
-                [SCNTransaction commit];
-                }];
-            
-            material.emission.contents = [UIColor redColor];
-            
-            [SCNTransaction commit];
-        */
-        
-        /*
-        
-//        let controlsVC = ControlsViewController()
-//        self.presentViewController(controlsVC, animated: true, completion: nil)
-        let vc : ControlsViewController = self.storyboard.instantiateViewControllerWithIdentifier("controlsVC") as ControlsViewController
-        //self.showViewController(vc as UIViewController, sender: vc)
-        self.presentViewController(vc, animated: true, completion: nil)
-    */
-        
     }
     
+    /**
+     * Pinch to zoom (move camera along Z)
+     */
     func handlePinch(pinch: UIPinchGestureRecognizer) {
 
         var z = (self.cameraNode.position.z) * (1 / Float(pinch.scale));
@@ -139,24 +105,25 @@ class MoleculeViewController: UIViewController {
         self.cameraNode.position = SCNVector3Make(0, 0, z)
     }
     
-    @IBAction func renderModeChanged(sender: UISegmentedControl) {
+    /**
+     * Callback from ControlsViewController to notify that state was modified (possibly)
+     * Need to check if state was changed to prevent wasted computation
+     */
+    func stateChanged() {
         
         // Remove current render
         molNode.removeFromParentNode()
         
         // Setup the new render
         molNode = SCNNode()
-        
-        switch sender.selectedSegmentIndex {
-        case 1:
-            RenderFactory.createSticks(pdbLoader.molecule, molNode: molNode)
-        case 2:
-            RenderFactory.createCartoons(pdbLoader.molecule, molNode: molNode)
+
+        // Render
+        switch state.mode {
+        case .Sticks:
+            RenderFactory.createSticks(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         default:
-            RenderFactory.createBalls(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         }
-        
-        //RenderFactory.overlayCubes(pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         
         scene.rootNode.addChildNode(molNode)
     }

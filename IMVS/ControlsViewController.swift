@@ -2,39 +2,45 @@
 //  ControlsViewController.swift
 //  IMVS
 //
-//  Created by Allistair Crossley on 27/07/2014.
+//  Created by Allistair Crossley on 06/09/2014.
 //  Copyright (c) 2014 Allistair Crossley. All rights reserved.
 //
 
 import UIKit
 
-class ControlsViewController: UINavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class ControlsViewController: UIViewController {
+    
+    func getMoleculeViewController() -> MoleculeViewController {
+        var nc = (self.presentingViewController as UINavigationController)
+        return nc.viewControllers[1] as MoleculeViewController
     }
     
-    @IBAction func changeRenderStyle(sender: AnyObject) {
+    func finish() {
+        getMoleculeViewController().stateChanged()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func changeColourScheme(sender: AnyObject) {
+    @IBAction func modeBalls(sender: AnyObject) {
+
+        getMoleculeViewController().state.mode = RenderModeEnumeration.Balls
+        finish()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func modeSticks(sender: AnyObject) {
+        
+        getMoleculeViewController().state.mode = RenderModeEnumeration.Sticks
+        finish()
     }
-    */
-
+    
+    @IBAction func colourCPK(sender: AnyObject) {
+        
+        getMoleculeViewController().state.colour = RenderColourEnumeration.CPK
+        finish()
+    }
+    
+    @IBAction func colourAmino(sender: AnyObject) {
+        
+        getMoleculeViewController().state.colour = RenderColourEnumeration.Amino
+        finish()
+    }
 }
