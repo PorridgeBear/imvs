@@ -11,8 +11,8 @@ import UIKit
 class ControlsViewController: UIViewController {
     
     func getMoleculeViewController() -> MoleculeViewController {
-        var nc = (self.presentingViewController as UINavigationController)
-        return nc.viewControllers[1] as MoleculeViewController
+        var nc = (self.presentingViewController as! UINavigationController)
+        return nc.viewControllers[1] as! MoleculeViewController
     }
     
     func finish() {

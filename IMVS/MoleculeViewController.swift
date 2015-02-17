@@ -60,7 +60,7 @@ class MoleculeViewController: UIViewController {
         
         scene.rootNode.addChildNode(molNode)
         
-        let scnView = self.view as SCNView
+        let scnView = self.view as! SCNView
         scnView.scene = scene
         scnView.allowsCameraControl = true
         scnView.pointOfView = cameraNode
@@ -74,7 +74,7 @@ class MoleculeViewController: UIViewController {
         gestureRecognizers.addObject(tapGesture)
         gestureRecognizers.addObject(pinchGesture)
         gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers!)
-        scnView.gestureRecognizers = gestureRecognizers
+        scnView.gestureRecognizers = gestureRecognizers as [AnyObject]?
     }
     
     /**
@@ -82,14 +82,14 @@ class MoleculeViewController: UIViewController {
      */
     func handleTap(tap: UITapGestureRecognizer) {
         
-        let scnView = self.view as SCNView
+        let scnView = self.view as! SCNView
         
         var point = tap.locationInView(scnView)
         var hitResults = scnView.hitTest(point, options: nil)
         
         if hitResults!.count > 0 {
             
-            var result: SCNHitTestResult = hitResults![0] as SCNHitTestResult
+            var result: SCNHitTestResult = hitResults![0] as! SCNHitTestResult
             println(result.node.name)
         }
     }
@@ -134,9 +134,9 @@ class MoleculeViewController: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
+            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
         } else {
-            return Int(UIInterfaceOrientationMask.All.toRaw())
+            return Int(UIInterfaceOrientationMask.All.rawValue)
         }
     }
     

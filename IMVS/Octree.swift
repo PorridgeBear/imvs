@@ -139,7 +139,7 @@ class Octree {
                 
                 for obj in objects {
                     
-                    let atom = obj as Atom
+                    let atom = obj as! Atom
                     let objPosition = [atom.position.x, atom.position.y, atom.position.z]
                     let branch: Int = findBranch(root!, position: objPosition)
                     root!.branches[branch] = insertNode(root!.branches[branch], size: newSize, parent: root!, object: atom)
