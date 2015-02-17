@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>04FDD322FE3866C65FA997BDB68E6389ECF5D548</key>
-		<string>ssh://github.com/PorridgeBear/imvs.git</string>
+		<string>https://github.com/PorridgeBear/imvs.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>IMVS.xcodeproj/project.xcworkspace</string>
+	<string>IMVS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>04FDD322FE3866C65FA997BDB68E6389ECF5D548</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/PorridgeBear/imvs.git</string>
+	<string>https://github.com/PorridgeBear/imvs.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>04FDD322FE3866C65FA997BDB68E6389ECF5D548</string>
 			<key>IDESourceControlWCCName</key>
-			<string>IMVS</string>
+			<string>imvs</string>
 		</dict>
 	</array>
 </dict>
