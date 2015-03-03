@@ -20,15 +20,15 @@ import Foundation
  */
 class Residue {
     
+    var id: String = ""
     var name: String = ""
     var atoms: [Atom] = []
+    var isHelixPart: Bool = false
+    var isSheetPart: Bool = false
     
-    convenience init() {
-        self.init(name: "NONE")
-    }
-    
-    init(name: String) {
+    init(id: String, name: String) {
         
+        self.id = id
         self.name = name
     }
     
