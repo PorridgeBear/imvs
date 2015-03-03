@@ -10,28 +10,29 @@ import Foundation
 
 class Chain {
     
-    var id: String = ""
+    var id: String?
     var residues: [Residue] = []
-    var residue: Residue = Residue()
 
-    convenience init() {
-        
-        self.init(id: "NONE")
-    }
-
-    init(id:String) {
+    init(id: String) {
         
         self.id = id
     }
     
-    func addAtom(atom: Atom) {
+    func findResidueById(id: String, name: String) -> Residue {
         
-        // Create new residues as they occur
-        if residue.name != atom.residue {
-            residue = Residue(name: atom.residue)
-            residues.append(residue)
+        for residue in residues {
+            if id == residue.id {
+                return residue
+            }
         }
         
-        residue.addAtom(atom)
+        let residue = Residue(id: id, name: name)
+        residues.append(residue)
+        return residue
+    }
+    
+    func addAtom(atom: Atom) {
+        println(atom.residueId)
+        findResidueById(atom.residueId, name: atom.residue).addAtom(atom)
     }
 }
