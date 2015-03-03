@@ -27,7 +27,7 @@ class MoleculeViewController: UIViewController {
         
         pdbLoader.loadMoleculeForPath(pdbFile)
         self.title = pdbLoader.molecule.name
-
+        
         cameraNode.camera = SCNCamera()
         cameraNode.camera!.zNear = 0.1
         cameraNode.position = SCNVector3(x: 0, y: 0, z: pdbLoader.molecule.maxN * 3)
@@ -55,7 +55,8 @@ class MoleculeViewController: UIViewController {
         case .Sticks:
             RenderFactory.createSticks(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         default:
-            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+//            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+            RenderFactory.createCartoons(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         }
         
         scene.rootNode.addChildNode(molNode)
@@ -65,7 +66,7 @@ class MoleculeViewController: UIViewController {
         scnView.allowsCameraControl = true
         scnView.pointOfView = cameraNode
         // scnView.showsStatistics = true
-        scnView.backgroundColor = UIColor.blackColor()
+        scnView.backgroundColor = UIColor.whiteColor()
         
         // Controls
         let gestureRecognizers = NSMutableArray()
