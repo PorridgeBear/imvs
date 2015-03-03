@@ -28,24 +28,34 @@ class Molecule {
     
     var bonds: [Bond] = []
     
-    var chains: [Chain] = []
-    var chain: Chain = Chain()
+    var models: [Model] = []
     
     var helices: [SecondaryStructure] = []
     var sheets: [SecondaryStructure] = []
     var turns: [SecondaryStructure] = []
     
     var clouds: [AtomCloud] = []
-        
+  
+    init() {
+        models.append(Model())
+    }
+    
     func addAtom(atom: Atom) {
+  
+        models.last!.addAtom(atom)
+    }
+    
+    func findChainById(id: String) -> Chain? {
         
-        // Create new chains as they occur
-        if chain.id != atom.chain {
-            chain = Chain(id: atom.chain)
-            chains.append(chain)
+        for model in models {
+            for chain in model.chains {
+                if id == chain.id {
+                    return chain
+                }
+            }
         }
         
-        chain.addAtom(atom)
+        return nil
     }
     
     func commit() {
@@ -54,43 +64,43 @@ class Molecule {
         var numAtoms = 0
         
         // Compute bounds and set additional atom meta
-        for chain in chains {
-            
-            for residue in chain.residues {
+        for model in models {
+            for chain in model.chains {
+                for residue in chain.residues {
+                    for atom in residue.atoms {
                 
-                for atom in residue.atoms {
-            
-                    atom.valence = pt.getElementBySymbol(atom.element).valence
-                    
-                    if atom.position.x < minX {
-                        minX = atom.position.x
+                        atom.valence = pt.getElementBySymbol(atom.element).valence
+                        
+                        if atom.position.x < minX {
+                            minX = atom.position.x
+                        }
+                        
+                        if atom.position.x > maxX {
+                            maxX = atom.position.x
+                        }
+                        
+                        if atom.position.y < minY {
+                            minY = atom.position.y
+                        }
+                        
+                        if atom.position.y > maxY {
+                            maxY = atom.position.y
+                        }
+                        
+                        if atom.position.z < minZ {
+                            minZ = atom.position.z
+                        }
+                        
+                        if atom.position.z > maxZ {
+                            maxZ = atom.position.z
+                        }
+                        
+                        center.x += atom.position.x
+                        center.y += atom.position.y
+                        center.z += atom.position.z
+                        
+                        numAtoms++
                     }
-                    
-                    if atom.position.x > maxX {
-                        maxX = atom.position.x
-                    }
-                    
-                    if atom.position.y < minY {
-                        minY = atom.position.y
-                    }
-                    
-                    if atom.position.y > maxY {
-                        maxY = atom.position.y
-                    }
-                    
-                    if atom.position.z < minZ {
-                        minZ = atom.position.z
-                    }
-                    
-                    if atom.position.z > maxZ {
-                        maxZ = atom.position.z
-                    }
-                    
-                    center.x += atom.position.x
-                    center.y += atom.position.y
-                    center.z += atom.position.z
-                    
-                    numAtoms++
                 }
             }
         }
@@ -128,22 +138,24 @@ class Molecule {
         
         println("Creating bonds")
         
-        for chain in chains {
-            
-            println("Chain \(chain.id)");
-            
-            var cloud = AtomCloud(cubeLength: 1.83)
-            
-            for residue in chain.residues {
+        for model in models {
+            for chain in model.chains {
                 
-                for var i = 0; i < residue.atoms.count; i++ {
+                println("Chain \(chain.id)");
+                
+                var cloud = AtomCloud(cubeLength: 1.83)
+                
+                for residue in chain.residues {
                     
-                    cloud.insert(residue.atoms[i])
+                    for var i = 0; i < residue.atoms.count; i++ {
+                        
+                        cloud.insert(residue.atoms[i])
+                    }
                 }
+                
+                clouds.append(cloud)
+                doBonds(cloud, chain: chain)
             }
-            
-            clouds.append(cloud)
-            doBonds(cloud, chain: chain)
         }
         
         println("Created \(bonds.count) bonds.")
