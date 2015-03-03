@@ -13,6 +13,7 @@ class Atom : Hashable {
     var id: String  = ""
     var name: String  = ""
     var residue: String  = ""
+    var residueId: String  = ""
     var chain: String  = ""
     var element: String  = ""
     var position = Point3D()
@@ -25,11 +26,12 @@ class Atom : Hashable {
         }
     }
     
-    init(id: String, name: String, residue: String, chain: String, element: String, x: Float, y: Float, z: Float, remoteness: String) {
+    init(id: String, name: String, residue: String, resId: String, chain: String, element: String, x: Float, y: Float, z: Float, remoteness: String) {
         
         self.id = id
         self.name = name
         self.residue = residue
+        self.residueId = resId
         self.chain = chain
         self.element = element
         
