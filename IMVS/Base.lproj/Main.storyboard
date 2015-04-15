@@ -14,7 +14,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ly0-1W-bjR">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ThI-2A-ChM">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" id="ThI-2A-ChM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YmH-zn-c7e">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -99,7 +99,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MolCell" id="12t-gn-QP1" customClass="MoleculeTableViewCell" customModule="IMVS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="12t-gn-QP1" id="uib-MU-bSC">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -161,7 +161,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PDBCell" textLabel="voS-nh-Fmf" detailTextLabel="0oH-7i-9SJ" style="IBUITableViewCellStyleSubtitle" id="TnX-cb-IR4">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TnX-cb-IR4" id="UPq-D0-e38">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
