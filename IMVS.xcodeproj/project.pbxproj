@@ -37,6 +37,10 @@
 		1F09BDDF198060340000AB61 /* streptomycin.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC2198060340000AB61 /* streptomycin.pdb */; };
 		1F09BDE0198060340000AB61 /* trp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC3198060340000AB61 /* trp.pdb */; };
 		1F09BDE1198060340000AB61 /* zdna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC4198060340000AB61 /* zdna.pdb */; };
+		1F0B24C01ADEBF0200F26F50 /* SearchMoleculeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24BF1ADEBF0200F26F50 /* SearchMoleculeController.swift */; };
+		1F0B24C31ADEBFEF00F26F50 /* RCSBDescResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24C21ADEBFEF00F26F50 /* RCSBDescResponseParser.swift */; };
+		1F0B24C51ADEC03F00F26F50 /* RCSBSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24C41ADEC03F00F26F50 /* RCSBSearch.swift */; };
+		1F0B24F91ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24F81ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift */; };
 		1F18D6721A93EF600038AD97 /* BallsRenderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D6711A93EF600038AD97 /* BallsRenderMode.swift */; };
 		1F18D6741A93EFC20038AD97 /* SticksRenderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D6731A93EFC20038AD97 /* SticksRenderMode.swift */; };
 		1F18D6761A93F02F0038AD97 /* CartoonsRenderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D6751A93F02F0038AD97 /* CartoonsRenderMode.swift */; };
@@ -116,6 +120,10 @@
 		1F09BDC2198060340000AB61 /* streptomycin.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = streptomycin.pdb; sourceTree = "<group>"; };
 		1F09BDC3198060340000AB61 /* trp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trp.pdb; sourceTree = "<group>"; };
 		1F09BDC4198060340000AB61 /* zdna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zdna.pdb; sourceTree = "<group>"; };
+		1F0B24BF1ADEBF0200F26F50 /* SearchMoleculeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMoleculeController.swift; sourceTree = "<group>"; };
+		1F0B24C21ADEBFEF00F26F50 /* RCSBDescResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBDescResponseParser.swift; sourceTree = "<group>"; };
+		1F0B24C41ADEC03F00F26F50 /* RCSBSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBSearch.swift; sourceTree = "<group>"; };
+		1F0B24F81ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBSearchReceiverDelegate.swift; sourceTree = "<group>"; };
 		1F18D6711A93EF600038AD97 /* BallsRenderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallsRenderMode.swift; sourceTree = "<group>"; };
 		1F18D6731A93EFC20038AD97 /* SticksRenderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SticksRenderMode.swift; sourceTree = "<group>"; };
 		1F18D6751A93F02F0038AD97 /* CartoonsRenderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartoonsRenderMode.swift; sourceTree = "<group>"; };
@@ -182,6 +190,16 @@
 				1F021E821984FBB000CA831C /* PDBRestWebService.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		1F0B24C11ADEBFD000F26F50 /* RCSB */ = {
+			isa = PBXGroup;
+			children = (
+				1F0B24C21ADEBFEF00F26F50 /* RCSBDescResponseParser.swift */,
+				1F0B24C41ADEC03F00F26F50 /* RCSBSearch.swift */,
+				1F0B24F81ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift */,
+			);
+			name = RCSB;
 			sourceTree = "<group>";
 		};
 		1F18D6701A93EF3B0038AD97 /* RenderModes */ = {
@@ -334,10 +352,12 @@
 		1FEB6B7B1972EB3D001EFADF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F0B24C11ADEBFD000F26F50 /* RCSB */,
 				1FEB6BD419733C48001EFADF /* Rendering */,
 				1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */,
 				1FEB6BD21973356D001EFADF /* MoleculeTableViewCell.swift */,
 				1F945B361968AA290029948A /* MoleculeViewController.swift */,
+				1F0B24BF1ADEBF0200F26F50 /* SearchMoleculeController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -497,6 +517,7 @@
 				1FEB6BD119732BE1001EFADF /* MoleculeTableViewController.swift in Sources */,
 				1FEB6BDA1974813D001EFADF /* RenderFactory.swift in Sources */,
 				1FEB6BD619735421001EFADF /* RadiusFactory.swift in Sources */,
+				1F0B24C31ADEBFEF00F26F50 /* RCSBDescResponseParser.swift in Sources */,
 				1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */,
 				1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */,
 				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
@@ -511,6 +532,9 @@
 				1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */,
 				1F33775619AFECCF00D00068 /* Octree.swift in Sources */,
 				1F18D6741A93EFC20038AD97 /* SticksRenderMode.swift in Sources */,
+				1F0B24F91ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift in Sources */,
+				1F0B24C01ADEBF0200F26F50 /* SearchMoleculeController.swift in Sources */,
+				1F0B24C51ADEC03F00F26F50 /* RCSBSearch.swift in Sources */,
 				1F2713FA19BBA6DD006A5D34 /* ControlsViewController.swift in Sources */,
 				1FEB6BD31973356D001EFADF /* MoleculeTableViewCell.swift in Sources */,
 				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
