@@ -55,8 +55,8 @@ class MoleculeViewController: UIViewController {
         case .Sticks:
             RenderFactory.createSticks(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         default:
-//            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
-            RenderFactory.createCartoons(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
+            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+            // RenderFactory.createCartoons(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         }
         
         scene.rootNode.addChildNode(molNode)
