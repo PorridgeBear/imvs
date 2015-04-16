@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
 /**
  * Molecule
  * https://www.umass.edu/microbio/rasmol/rasbonds.htm#src
  */
-class Molecule {
+class Molecule : NSManagedObject {
+    
+    @NSManaged var structureId: String
+    @NSManaged var filePath: String
+    @NSManaged var title: String
+    @NSManaged var atoms: NSNumber
     
     var name: String = ""
     
@@ -28,7 +34,7 @@ class Molecule {
     
     var bonds: [Bond] = []
     
-    var models: [Model] = []
+    var models: [Model] = [Model()]
     
     var helices: [SecondaryStructure] = []
     var sheets: [SecondaryStructure] = []
@@ -36,10 +42,6 @@ class Molecule {
     
     var clouds: [AtomCloud] = []
   
-    init() {
-        models.append(Model())
-    }
-    
     func addAtom(atom: Atom) {
   
         models.last!.addAtom(atom)
