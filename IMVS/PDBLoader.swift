@@ -22,10 +22,10 @@ class PDBLoader {
     
     func loadMoleculeForPath(pdbFile: String) {
         
-        let path = NSBundle.mainBundle().pathForResource(pdbFile, ofType: "pdb")
+        //let path = NSBundle.mainBundle().pathForResource(pdbFile, ofType: "pdb")
         molecule.name = pdbFile
 
-        let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)
+        let content = String(contentsOfFile: pdbFile, encoding: NSUTF8StringEncoding, error: nil)
         let lines = content!.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
        
         for line in lines {

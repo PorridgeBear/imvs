@@ -12,59 +12,31 @@ import CoreData
 
 class MoleculeTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
-    /*
-    var cdstore: CoreDataStore {
-    if !_cdstore {
-        _cdstore = CoreDataStore()
-        }
-        return _cdstore!
-    }
-    var _cdstore: CoreDataStore? = nil
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var cdh: CoreDataHelper {
-    if !_cdh {
-        _cdh = CoreDataHelper()
-        }
-        return _cdh!
-    }
-    var _cdh: CoreDataHelper? = nil
-    */
-    
-    var defaultMolecules: [Molecule] = []
-    
-    var pdbFileList: [String] = [
-        "1crn",
-        "132l",
-        "ala",
-        "atp",
-        "benzene",
-        "cys",
-        "dna",
-        "fullerene"
-    ];
+    var molecules = [Molecule]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Molecules"
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        loadMolecules()
+    }
+    
+    func loadMolecules() {
         
-        /* Core Data
-        println("Load default molecules")
-        var error: NSError? = nil
-        var fReq: NSFetchRequest = NSFetchRequest(entityName: "Molecule")
-        
-        // fReq.predicate = NSPredicate(format:"name CONTAINS 'B' ")
-        
-        var sorter: NSSortDescriptor = NSSortDescriptor(key: "vendorId" , ascending: true)
-        fReq.sortDescriptors = [sorter]
-        
-        var result = self.cdh.managedObjectContext.executeFetchRequest(fReq, error:&error)
-        
-        for resultItem : AnyObject in result {
-            var mol = resultItem as Molecule
-            NSLog("Fetched Molecule \(mol.vendorId)")
+        let fetchRequest = NSFetchRequest(entityName: "Molecule")
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Molecule] {
+            
+            molecules = fetchResults
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
         }
-        */
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -73,33 +45,27 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return pdbFileList.count
+        return molecules.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell: MoleculeTableViewCell? = tableView.dequeueReusableCellWithIdentifier("MolCell") as! MoleculeTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MolCell", forIndexPath: indexPath) as! UITableViewCell
         
-        if cell == nil {
-            cell = MoleculeTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MolCell")
-        }
+        let molecule = molecules[indexPath.row]
+        cell.textLabel?.text = "\(molecule.structureId) (\(molecule.atoms))"
+        cell.detailTextLabel?.text = molecule.title
         
-        cell!.nameLabel!.text = self.pdbFileList[indexPath.row]
-        
-        return cell!
+        return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return 50.0;
-    }
-        
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         if (segue.identifier == "RenderMolecule") {
             
-            let viewController:MoleculeViewController = segue!.destinationViewController as! MoleculeViewController
+            let viewController:MoleculeViewController = segue.destinationViewController as! MoleculeViewController
             let indexPath = self.tableView.indexPathForSelectedRow()
-            viewController.pdbFile = self.pdbFileList[indexPath!.row]
+            viewController.pdbFile = molecules[indexPath!.row].filePath
         }
     }
 }

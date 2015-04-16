@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol RCSBSearchReceiverDelegate {
+protocol RCSBServiceDelegate {
     func setList(list: [PDBDescription])
+    func didDownloadFile(pdb: PDBDescription, path: String)
 }

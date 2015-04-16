@@ -16,7 +16,7 @@ struct PDBDescription {
 
 class RCSBDescResponseParser : NSObject, NSXMLParserDelegate {
     
-    var delegate: RCSBSearch?
+    var delegate: RCSBService?
     var list : [PDBDescription] = []
     var inPDB = false
     var cdata = ""
