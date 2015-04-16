@@ -8,18 +8,9 @@
 
 import Foundation
 
-/*
-
-POST
-
-http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId=3I5F
-
-
-*/
-
-class RCSBSearch {
+class RCSBService {
     
-    var delegate: RCSBSearchReceiverDelegate?
+    var delegate: RCSBServiceDelegate?
     
     func search(query: String) {
 
@@ -90,5 +81,29 @@ class RCSBSearch {
     func didCompleteDescResponseParsing(list: [PDBDescription]) {
         println("didCompleteDescResponseParsing list: \(list.count)")
         delegate?.setList(list)
+    }
+    
+    func downloadFile(pdbDesc: PDBDescription) {
+
+        let url = NSURL(string: "http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId=\(pdbDesc.structureId)")
+        
+        let task = NSURLSession.sharedSession().downloadTaskWithURL(url!) {
+            (url, response, error) in
+            
+            if url == nil {
+                println("downloadTaskWithURL error: \(error)")
+                return
+            }
+            
+            // Write the file
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! NSString
+            let pdbPath = documentsPath.stringByAppendingPathComponent("\(pdbDesc.structureId).pdb")
+            NSData(contentsOfURL: url)?.writeToFile(pdbPath, atomically: true)
+            
+            // Notify delegate of file availability
+            self.delegate?.didDownloadFile(pdbDesc, path: pdbPath)
+        }
+        
+        task.resume()
     }
 }
