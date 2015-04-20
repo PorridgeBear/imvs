@@ -10,36 +10,25 @@ import Foundation
 
 class Atom : Hashable {
     
-    var id: String  = ""
-    var name: String  = ""
-    var residue: String  = ""
-    var residueId: String  = ""
-    var chain: String  = ""
-    var element: String  = ""
-    var position = Point3D()
-    var valence: Float = 0.0
-    var remoteness: String = "" // A, B, G, D, E, Z, H
+    var id: String = ""
+    var name: String?
+    var symbol: String?
+    var x: Float = 0.0
+    var y: Float = 0.0
+    var z: Float = 0.0
     
+//    var residue: String  = ""
+//    var residueId: String  = ""
+//    var chain: String  = ""
+//    var element: String  = ""
+//     var position = Point3D()
+//     var valence: Float = 0.0
+//    var remoteness: String = "" // A, B, G, D, E, Z, H
+
     var hashValue : Int {
         get {
-            return "\(self.position.x)\(self.position.y)\(self.position.z)".hashValue
+            return id!.hashValue
         }
-    }
-    
-    init(id: String, name: String, residue: String, resId: String, chain: String, element: String, x: Float, y: Float, z: Float, remoteness: String) {
-        
-        self.id = id
-        self.name = name
-        self.residue = residue
-        self.residueId = resId
-        self.chain = chain
-        self.element = element
-        
-        position.x = x
-        position.y = y
-        position.z = z
-        
-        self.remoteness = remoteness
     }
 }
 
