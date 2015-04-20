@@ -13,12 +13,7 @@ import CoreData
  * Molecule
  * https://www.umass.edu/microbio/rasmol/rasbonds.htm#src
  */
-class Molecule : NSManagedObject {
-    
-    @NSManaged var structureId: String
-    @NSManaged var filePath: String
-    @NSManaged var title: String
-    @NSManaged var atoms: NSNumber
+class Molecule {
     
     var name: String = ""
     

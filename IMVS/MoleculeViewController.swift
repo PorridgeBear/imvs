@@ -26,7 +26,7 @@ class MoleculeViewController: UIViewController {
         println("MVC viewDidLoad \(pdbFile)")
         
         pdbLoader.loadMoleculeForPath(pdbFile)
-        self.title = pdbLoader.molecule.name
+        self.navigationController?.title = pdbLoader.molecule.name
         
         cameraNode.camera = SCNCamera()
         cameraNode.camera!.zNear = 0.1

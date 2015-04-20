@@ -8,7 +8,10 @@
 
 import Foundation
 
-protocol RCSBServiceDelegate {
-    func setList(list: [PDBDescription])
-    func didDownloadFile(pdb: PDBDescription, path: String)
+/**
+ * Functions required for being an RCSBSearchService delegate.
+ */
+protocol RCSBSearchServiceDelegate {
+    
+    func setMoleculeList(list: [MoleculeSummary])
 }

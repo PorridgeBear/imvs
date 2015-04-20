@@ -8,25 +8,23 @@
 
 import Foundation
 import UIKit
-import CoreData
 
-class SearchMoleculeController : UITableViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, RCSBServiceDelegate {
+/**
+ * Search for a molecule (just RCSB PDB databank for now)
+ */
+class SearchMoleculeController : UITableViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, RCSBSearchServiceDelegate {
     
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    // Search implementation to use (can be made protocol and swapped out later for others)
+    let search = RCSBSearchService()
     
-    let search = RCSBService()
+    var list: [MoleculeSummary] = []
     
-    var list: [PDBDescription] = []
-    
-    var loadingView: UIView?
-    let spinnerView: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var loadingView: LoadingView?
     
     override func viewDidLoad() {
 
-        loadingView = UIView(frame: UIScreen.mainScreen().bounds)
-        loadingView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        spinnerView.center = loadingView!.center
-        loadingView?.addSubview(spinnerView)
+        title = "Search"
+        loadingView = LoadingView(frame: UIScreen.mainScreen().bounds)
     }
     
     // MARK: Search
@@ -34,11 +32,19 @@ class SearchMoleculeController : UITableViewController, UISearchBarDelegate, UIT
     /** User search */
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        spinnerView.startAnimating()
-        tableView.addSubview(loadingView!)
-        
+        searchBar.resignFirstResponder()
+        think()
         search.delegate = self
         search.search(searchBar.text)
+    }
+    
+    func think() {
+        loadingView!.start()
+        tableView.addSubview(loadingView!)
+    }
+    
+    func unthink() {
+        loadingView!.stop()
     }
     
     // MARK: Table
@@ -51,43 +57,33 @@ class SearchMoleculeController : UITableViewController, UISearchBarDelegate, UIT
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PDBCell", forIndexPath: indexPath) as! UITableViewCell
-
+        
         if list.count > 0 {
-            let pdbDesc = list[indexPath.row]
-            cell.textLabel?.text = "\(pdbDesc.structureId) (\(pdbDesc.atoms))"
-            cell.detailTextLabel?.text = pdbDesc.title
+            let molSumm = list[indexPath.row]
+            // cell.textLabel?.text = (molSumm.id) (\(molSumm.atoms))"
+            cell.textLabel?.text = molSumm.id
+            cell.detailTextLabel?.text = molSumm.title
         }
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let pdbDesc = list[indexPath.row]
-        search.downloadFile(pdbDesc)
+    /** Set next controller's molecule from this selection */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let viewController: MoleculeDetailView = segue.destinationViewController as! MoleculeDetailView
+        viewController.molecule = list[tableView.indexPathForSelectedRow()!.row]
     }
     
     // MARK: RCSBSearchReceiverDelegate
     
-    func setList(list: [PDBDescription]) {
+    /** Called when search is complete */
+    func setMoleculeList(list: [MoleculeSummary]) {
 
         self.list = list
         
         dispatch_async(dispatch_get_main_queue(), {
-            self.spinnerView.stopAnimating()
-            self.loadingView?.removeFromSuperview()
+            self.unthink()
             self.tableView.reloadData()
         })
-    }
-    
-    func didDownloadFile(pdb: PDBDescription, path: String) {
-        
-        println("open PDB \(pdb.structureId)")
-        
-        let molecule: Molecule = NSEntityDescription.insertNewObjectForEntityForName("Molecule", inManagedObjectContext: managedObjectContext!) as! Molecule
-        molecule.filePath = path
-        molecule.structureId = pdb.structureId
-        molecule.title = pdb.title
-        molecule.atoms = pdb.atoms.toInt()!
     }
 }
