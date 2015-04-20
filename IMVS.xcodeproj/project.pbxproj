@@ -64,7 +64,6 @@
 		1F8171471AE552260065F83C /* RCSBGetDescService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8171461AE552260065F83C /* RCSBGetDescService.swift */; };
 		1F8171491AE5527A0065F83C /* RCSBDownloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8171481AE5527A0065F83C /* RCSBDownloadDelegate.swift */; };
 		1F81714B1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81714A1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift */; };
-		1F81714D1AE55EDD0065F83C /* PDBxParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81714C1AE55EDD0065F83C /* PDBxParser.swift */; };
 		1F945B351968AA290029948A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B341968AA290029948A /* AppDelegate.swift */; };
 		1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B361968AA290029948A /* MoleculeViewController.swift */; };
 		1F945B3A1968AA290029948A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F945B381968AA290029948A /* Main.storyboard */; };
@@ -156,7 +155,6 @@
 		1F8171461AE552260065F83C /* RCSBGetDescService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBGetDescService.swift; sourceTree = "<group>"; };
 		1F8171481AE5527A0065F83C /* RCSBDownloadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBDownloadDelegate.swift; sourceTree = "<group>"; };
 		1F81714A1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBGetDescServiceDelegate.swift; sourceTree = "<group>"; };
-		1F81714C1AE55EDD0065F83C /* PDBxParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBxParser.swift; sourceTree = "<group>"; };
 		1F945B2F1968AA290029948A /* IMVS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F945B331968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F945B341968AA290029948A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 			children = (
 				1F021E811984FB9100CA831C /* Network */,
 				1F945B5D1968BDB10029948A /* PDBLoader.swift */,
-				1F81714C1AE55EDD0065F83C /* PDBxParser.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -545,7 +542,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F81714D1AE55EDD0065F83C /* PDBxParser.swift in Sources */,
 				1F25D8EA1A9BDBF7006F259C /* Model.swift in Sources */,
 				1F945B591968BD810029948A /* Molecule.swift in Sources */,
 				1FEB6BDE197695C4001EFADF /* PeriodicTable.swift in Sources */,
