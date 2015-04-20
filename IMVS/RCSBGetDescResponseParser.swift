@@ -8,37 +8,41 @@
 
 import Foundation
 
-struct PDBDescription {
-    var structureId  = ""
-    var title = ""
-    var atoms = ""
-}
-
-class RCSBDescResponseParser : NSObject, NSXMLParserDelegate {
+/**
+ * XML parser for PDB elements (within PDBdescription list for instance)
+ */
+class RCSBGetDescResponseParser : NSObject, NSXMLParserDelegate {
     
-    var delegate: RCSBService?
-    var list : [PDBDescription] = []
+    var delegate: RCSBGetDescService?
+    
+    var list: [MoleculeSummary] = []
     var inPDB = false
-    var cdata = ""
     
+    /** Start */
     func parserDidStartDocument(parser: NSXMLParser) {
-        
+
     }
     
+    /** 
+     * Look for PDB element starts - create summary per element from attributes 
+     * and add to list
+     */
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         
         if elementName == "PDB" {
             inPDB = true
             
-            let desc = PDBDescription(structureId: attributeDict["structureId"] as! String, title: attributeDict["title"] as! String, atoms: attributeDict["nr_atoms"] as! String)
-            list.append(desc)
+            var molSumm = MoleculeSummary(id: attributeDict["structureId"] as! String, title: attributeDict["title"] as? String, atoms: attributeDict["nr_atoms"] as! String)
+            list.append(molSumm)
         }
     }
 
+    /** Look for CDATA, not used */
     func parser(parser: NSXMLParser, foundCharacters string: String?) {
         
     }
 
+    /** Look for PDB element ends, not used */
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == "PDB" {
@@ -46,6 +50,7 @@ class RCSBDescResponseParser : NSObject, NSXMLParserDelegate {
         }
     }
     
+    /** On complete, notify delegate */
     func parserDidEndDocument(parser: NSXMLParser) {
         delegate?.didCompleteDescResponseParsing(list)
     }

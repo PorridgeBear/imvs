@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JD8-X3-yLD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JD8-X3-yLD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Molecule View Controller-->
@@ -89,16 +89,16 @@
             </objects>
             <point key="canvasLocation" x="2116" y="748"/>
         </scene>
-        <!--Molecule Table View Controller-->
+        <!--Favourites Table View Controller-->
         <scene sceneID="Yns-kD-bbf">
             <objects>
-                <tableViewController id="4pi-MW-Ekd" customClass="MoleculeTableViewController" customModule="IMVS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4pi-MW-Ekd" customClass="FavouritesTableViewController" customModule="IMVS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pWS-X7-PSi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MolCell" textLabel="5Vs-u0-Tpe" detailTextLabel="jQG-7N-xcT" style="IBUITableViewCellStyleSubtitle" id="12t-gn-QP1" customClass="MoleculeTableViewCell" customModule="IMVS" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FaveCell" textLabel="5Vs-u0-Tpe" detailTextLabel="jQG-7N-xcT" style="IBUITableViewCellStyleSubtitle" id="12t-gn-QP1">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="12t-gn-QP1" id="uib-MU-bSC">
@@ -108,19 +108,19 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Vs-u0-Tpe">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jQG-7N-xcT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="push" identifier="RenderMolecule" id="itZ-8Y-MDw"/>
+                                    <segue destination="BV1-FR-VrT" kind="push" identifier="" id="hTJ-gs-06I"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1220" y="753"/>
         </scene>
-        <!--Search Molecule Controller-->
+        <!--Search-->
         <scene sceneID="ehu-Zf-kGm">
             <objects>
-                <tableViewController id="k9E-cJ-IA8" customClass="SearchMoleculeController" customModule="IMVS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Search" id="k9E-cJ-IA8" customClass="SearchMoleculeController" customModule="IMVS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6sK-0s-0RZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,27 +164,30 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PDBCell" textLabel="voS-nh-Fmf" detailTextLabel="0oH-7i-9SJ" style="IBUITableViewCellStyleSubtitle" id="TnX-cb-IR4">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PDBCell" textLabel="voS-nh-Fmf" detailTextLabel="0oH-7i-9SJ" style="IBUITableViewCellStyleSubtitle" id="TnX-cb-IR4">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TnX-cb-IR4" id="UPq-D0-e38">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="voS-nh-Fmf">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0oH-7i-9SJ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Nxl-hD-5aa" kind="push" id="YDQ-Df-Yqi"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -197,6 +200,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYR-Rb-KVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1220" y="1506"/>
+        </scene>
+        <!--Molecule Detail View-->
+        <scene sceneID="4Gn-nH-1E0">
+            <objects>
+                <viewController id="Nxl-hD-5aa" customClass="MoleculeDetailView" customModule="IMVS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kgZ-Dx-kbM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Crambin" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fUj-mf-RdA">
+                                <rect key="frame" x="16" y="81" width="288" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7id-aE-M6g">
+                                <rect key="frame" x="126" y="471" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Download">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAddClick:" destination="Nxl-hD-5aa" eventType="touchUpInside" id="sYv-zp-agf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uXm-5s-Y1F"/>
+                    <connections>
+                        <outlet property="lblName" destination="fUj-mf-RdA" id="xsy-Lo-ZhI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZdF-i4-aiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="1506"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AOL-pS-0m1">

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+/**
+ * Functions required for being an RCSBService delegate.
+ */
+protocol RCSBDownloadServiceDelegate {
+    
+    func didDownloadMoleculeFile(pdb: MoleculeSummary)
+}

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+/**
+ * Functions required for being an RCSBSearchService delegate.
+ */
+protocol RCSBGetDescServiceDelegate {
+    
+    func setMolecule(molSumm: MoleculeSummary)
+}

@@ -10,28 +10,32 @@ import Foundation
 import UIKit
 import CoreData
 
-class MoleculeTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class FavouritesTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var molecules = [Molecule]()
+    var faves = [Favourite]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Molecules"
+
+        self.title = "Favourites"
     }
     
     override func viewDidAppear(animated: Bool) {
-        loadMolecules()
+        super.viewDidAppear(animated)
+        
+        loadFavourites()
     }
     
-    func loadMolecules() {
+    /** Load Favourites from Core Data */
+    func loadFavourites() {
         
-        let fetchRequest = NSFetchRequest(entityName: "Molecule")
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Molecule] {
-            
-            molecules = fetchResults
+        let fetchRequest = NSFetchRequest(entityName: "Favourite")
+        
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Favourite] {
+        
+            faves = fetchResults
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -39,33 +43,47 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+    // MARK: Table
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return molecules.count
+        println("numberOfRowsInSection")
+        return faves.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("MolCell", forIndexPath: indexPath) as! UITableViewCell
+        println("cellForRowAtIndexPath")
+        let cell = tableView.dequeueReusableCellWithIdentifier("FaveCell", forIndexPath: indexPath) as! UITableViewCell
         
-        let molecule = molecules[indexPath.row]
-        cell.textLabel?.text = "\(molecule.structureId) (\(molecule.atoms))"
-        cell.detailTextLabel?.text = molecule.title
+        let fav = faves[indexPath.row]
+        cell.textLabel?.text = "\(fav.structureId) (\(fav.atoms))"
+        cell.detailTextLabel?.text = fav.title
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        var delete = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Delete") { (action, indexpath) -> Void in
+            
+        }
+        
+        delete.backgroundColor = UIColor.redColor()
+        
+        return [delete]
+    }
+    
+    // MARK: Segue
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        if (segue.identifier == "RenderMolecule") {
-            
-            let viewController:MoleculeViewController = segue.destinationViewController as! MoleculeViewController
-            let indexPath = self.tableView.indexPathForSelectedRow()
-            viewController.pdbFile = molecules[indexPath!.row].filePath
-        }
+        let viewController: MoleculeViewController = segue.destinationViewController as! MoleculeViewController
+        let indexPath = self.tableView.indexPathForSelectedRow()
+        viewController.title = faves[indexPath!.row].structureId
+        viewController.pdbFile = faves[indexPath!.row].filePath
     }
 }

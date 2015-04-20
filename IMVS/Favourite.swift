@@ -15,5 +15,4 @@ class Favourite: NSManagedObject {
     @NSManaged var filePath: String
     @NSManaged var structureId: String
     @NSManaged var title: String
-
 }

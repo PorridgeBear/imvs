@@ -38,8 +38,8 @@
 		1F09BDE0198060340000AB61 /* trp.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC3198060340000AB61 /* trp.pdb */; };
 		1F09BDE1198060340000AB61 /* zdna.pdb in Resources */ = {isa = PBXBuildFile; fileRef = 1F09BDC4198060340000AB61 /* zdna.pdb */; };
 		1F0B24C01ADEBF0200F26F50 /* SearchMoleculeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24BF1ADEBF0200F26F50 /* SearchMoleculeController.swift */; };
-		1F0B24C31ADEBFEF00F26F50 /* RCSBDescResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24C21ADEBFEF00F26F50 /* RCSBDescResponseParser.swift */; };
-		1F0B24C51ADEC03F00F26F50 /* RCSBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24C41ADEC03F00F26F50 /* RCSBService.swift */; };
+		1F0B24C31ADEBFEF00F26F50 /* RCSBGetDescResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24C21ADEBFEF00F26F50 /* RCSBGetDescResponseParser.swift */; };
+		1F0B24C51ADEC03F00F26F50 /* RCSBSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24C41ADEC03F00F26F50 /* RCSBSearchService.swift */; };
 		1F0B24F91ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B24F81ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift */; };
 		1F0FC2C51AE05C1500B17ED8 /* IMVS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FC2C31AE05C1500B17ED8 /* IMVS.xcdatamodeld */; };
 		1F18D6721A93EF600038AD97 /* BallsRenderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D6711A93EF600038AD97 /* BallsRenderMode.swift */; };
@@ -56,6 +56,15 @@
 		1F2713FC19BBA929006A5D34 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2713FB19BBA929006A5D34 /* State.swift */; };
 		1F33775619AFECCF00D00068 /* Octree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33775519AFECCF00D00068 /* Octree.swift */; };
 		1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BB60819B27A1700BBD036 /* AtomCloud.swift */; };
+		1F81713B1AE1AF930065F83C /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81713A1AE1AF930065F83C /* Favourite.swift */; };
+		1F81713D1AE252A50065F83C /* MoleculeSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81713C1AE252A50065F83C /* MoleculeSummary.swift */; };
+		1F81713F1AE519AC0065F83C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81713E1AE519AC0065F83C /* LoadingView.swift */; };
+		1F8171411AE51AD60065F83C /* MoleculeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8171401AE51AD60065F83C /* MoleculeDetailView.swift */; };
+		1F8171451AE551EB0065F83C /* RCSBDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8171441AE551EB0065F83C /* RCSBDownloadService.swift */; };
+		1F8171471AE552260065F83C /* RCSBGetDescService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8171461AE552260065F83C /* RCSBGetDescService.swift */; };
+		1F8171491AE5527A0065F83C /* RCSBDownloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8171481AE5527A0065F83C /* RCSBDownloadDelegate.swift */; };
+		1F81714B1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81714A1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift */; };
+		1F81714D1AE55EDD0065F83C /* PDBxParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81714C1AE55EDD0065F83C /* PDBxParser.swift */; };
 		1F945B351968AA290029948A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B341968AA290029948A /* AppDelegate.swift */; };
 		1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F945B361968AA290029948A /* MoleculeViewController.swift */; };
 		1F945B3A1968AA290029948A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F945B381968AA290029948A /* Main.storyboard */; };
@@ -71,7 +80,7 @@
 		1FEB6BCB19730055001EFADF /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCA19730055001EFADF /* Chain.swift */; };
 		1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCC19730C47001EFADF /* ColourFactory.swift */; };
 		1FEB6BCF19730D4B001EFADF /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BCE19730D4B001EFADF /* Colour.swift */; };
-		1FEB6BD119732BE1001EFADF /* MoleculeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */; };
+		1FEB6BD119732BE1001EFADF /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD019732BE1001EFADF /* FavouritesTableViewController.swift */; };
 		1FEB6BD619735421001EFADF /* RadiusFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD519735421001EFADF /* RadiusFactory.swift */; };
 		1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */; };
 		1FEB6BDA1974813D001EFADF /* RenderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB6BD91974813D001EFADF /* RenderFactory.swift */; };
@@ -121,8 +130,8 @@
 		1F09BDC3198060340000AB61 /* trp.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trp.pdb; sourceTree = "<group>"; };
 		1F09BDC4198060340000AB61 /* zdna.pdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zdna.pdb; sourceTree = "<group>"; };
 		1F0B24BF1ADEBF0200F26F50 /* SearchMoleculeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMoleculeController.swift; sourceTree = "<group>"; };
-		1F0B24C21ADEBFEF00F26F50 /* RCSBDescResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBDescResponseParser.swift; sourceTree = "<group>"; };
-		1F0B24C41ADEC03F00F26F50 /* RCSBService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBService.swift; sourceTree = "<group>"; };
+		1F0B24C21ADEBFEF00F26F50 /* RCSBGetDescResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBGetDescResponseParser.swift; sourceTree = "<group>"; };
+		1F0B24C41ADEC03F00F26F50 /* RCSBSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBSearchService.swift; sourceTree = "<group>"; };
 		1F0B24F81ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBSearchReceiverDelegate.swift; sourceTree = "<group>"; };
 		1F0FC2C41AE05C1500B17ED8 /* IMVS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IMVS.xcdatamodel; sourceTree = "<group>"; };
 		1F18D6711A93EF600038AD97 /* BallsRenderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallsRenderMode.swift; sourceTree = "<group>"; };
@@ -139,6 +148,15 @@
 		1F2713FB19BBA929006A5D34 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1F33775519AFECCF00D00068 /* Octree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octree.swift; sourceTree = "<group>"; };
 		1F5BB60819B27A1700BBD036 /* AtomCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomCloud.swift; sourceTree = "<group>"; };
+		1F81713A1AE1AF930065F83C /* Favourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
+		1F81713C1AE252A50065F83C /* MoleculeSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeSummary.swift; sourceTree = "<group>"; };
+		1F81713E1AE519AC0065F83C /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1F8171401AE51AD60065F83C /* MoleculeDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeDetailView.swift; sourceTree = "<group>"; };
+		1F8171441AE551EB0065F83C /* RCSBDownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBDownloadService.swift; sourceTree = "<group>"; };
+		1F8171461AE552260065F83C /* RCSBGetDescService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBGetDescService.swift; sourceTree = "<group>"; };
+		1F8171481AE5527A0065F83C /* RCSBDownloadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBDownloadDelegate.swift; sourceTree = "<group>"; };
+		1F81714A1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCSBGetDescServiceDelegate.swift; sourceTree = "<group>"; };
+		1F81714C1AE55EDD0065F83C /* PDBxParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBxParser.swift; sourceTree = "<group>"; };
 		1F945B2F1968AA290029948A /* IMVS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F945B331968AA290029948A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F945B341968AA290029948A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +176,7 @@
 		1FEB6BCA19730055001EFADF /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		1FEB6BCC19730C47001EFADF /* ColourFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourFactory.swift; sourceTree = "<group>"; };
 		1FEB6BCE19730D4B001EFADF /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
-		1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeTableViewController.swift; sourceTree = "<group>"; };
+		1FEB6BD019732BE1001EFADF /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
 		1FEB6BD519735421001EFADF /* RadiusFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusFactory.swift; sourceTree = "<group>"; };
 		1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryStructure.swift; sourceTree = "<group>"; };
 		1FEB6BD91974813D001EFADF /* RenderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderFactory.swift; sourceTree = "<group>"; };
@@ -195,9 +213,13 @@
 		1F0B24C11ADEBFD000F26F50 /* RCSB */ = {
 			isa = PBXGroup;
 			children = (
-				1F0B24C21ADEBFEF00F26F50 /* RCSBDescResponseParser.swift */,
-				1F0B24C41ADEC03F00F26F50 /* RCSBService.swift */,
+				1F0B24C41ADEC03F00F26F50 /* RCSBSearchService.swift */,
 				1F0B24F81ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift */,
+				1F8171461AE552260065F83C /* RCSBGetDescService.swift */,
+				1F81714A1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift */,
+				1F0B24C21ADEBFEF00F26F50 /* RCSBGetDescResponseParser.swift */,
+				1F8171441AE551EB0065F83C /* RCSBDownloadService.swift */,
+				1F8171481AE5527A0065F83C /* RCSBDownloadDelegate.swift */,
 			);
 			name = RCSB;
 			sourceTree = "<group>";
@@ -210,6 +232,25 @@
 				1F18D6751A93F02F0038AD97 /* CartoonsRenderMode.swift */,
 			);
 			name = RenderModes;
+			sourceTree = "<group>";
+		};
+		1F81714E1AE55F880065F83C /* PDB */ = {
+			isa = PBXGroup;
+			children = (
+				1F945B581968BD810029948A /* Molecule.swift */,
+				1F945B5A1968BD960029948A /* Atom.swift */,
+				1F5BB60819B27A1700BBD036 /* AtomCloud.swift */,
+				1F945B5F196967A10029948A /* Point3D.swift */,
+				1FEB6BC819730035001EFADF /* Residue.swift */,
+				1FEB6BCA19730055001EFADF /* Chain.swift */,
+				1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */,
+				1FEB6BDB19748574001EFADF /* Bond.swift */,
+				1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */,
+				1F33775519AFECCF00D00068 /* Octree.swift */,
+				1F2713FB19BBA929006A5D34 /* State.swift */,
+				1F25D8E91A9BDBF7006F259C /* Model.swift */,
+			);
+			name = PDB;
 			sourceTree = "<group>";
 		};
 		1F945B261968AA290029948A = {
@@ -280,18 +321,9 @@
 		1F945B571968BD6B0029948A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1F945B581968BD810029948A /* Molecule.swift */,
-				1F945B5A1968BD960029948A /* Atom.swift */,
-				1F5BB60819B27A1700BBD036 /* AtomCloud.swift */,
-				1F945B5F196967A10029948A /* Point3D.swift */,
-				1FEB6BC819730035001EFADF /* Residue.swift */,
-				1FEB6BCA19730055001EFADF /* Chain.swift */,
-				1FEB6BD7197479F9001EFADF /* SecondaryStructure.swift */,
-				1FEB6BDB19748574001EFADF /* Bond.swift */,
-				1FEB6BDD197695C4001EFADF /* PeriodicTable.swift */,
-				1F33775519AFECCF00D00068 /* Octree.swift */,
-				1F2713FB19BBA929006A5D34 /* State.swift */,
-				1F25D8E91A9BDBF7006F259C /* Model.swift */,
+				1F81714E1AE55F880065F83C /* PDB */,
+				1F81713A1AE1AF930065F83C /* Favourite.swift */,
+				1F81713C1AE252A50065F83C /* MoleculeSummary.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -301,6 +333,7 @@
 			children = (
 				1F021E811984FB9100CA831C /* Network */,
 				1F945B5D1968BDB10029948A /* PDBLoader.swift */,
+				1F81714C1AE55EDD0065F83C /* PDBxParser.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -309,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				1F956B081979C3DA005505F8 /* SCNVector3Extensions.swift */,
+				1F81713E1AE519AC0065F83C /* LoadingView.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -355,9 +389,10 @@
 			children = (
 				1F0B24C11ADEBFD000F26F50 /* RCSB */,
 				1FEB6BD419733C48001EFADF /* Rendering */,
-				1FEB6BD019732BE1001EFADF /* MoleculeTableViewController.swift */,
+				1FEB6BD019732BE1001EFADF /* FavouritesTableViewController.swift */,
 				1F945B361968AA290029948A /* MoleculeViewController.swift */,
 				1F0B24BF1ADEBF0200F26F50 /* SearchMoleculeController.swift */,
+				1F8171401AE51AD60065F83C /* MoleculeDetailView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -510,16 +545,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F81714D1AE55EDD0065F83C /* PDBxParser.swift in Sources */,
 				1F25D8EA1A9BDBF7006F259C /* Model.swift in Sources */,
 				1F945B591968BD810029948A /* Molecule.swift in Sources */,
 				1FEB6BDE197695C4001EFADF /* PeriodicTable.swift in Sources */,
 				1F25D8EE1A9D1C34006F259C /* Spline3D.swift in Sources */,
-				1FEB6BD119732BE1001EFADF /* MoleculeTableViewController.swift in Sources */,
+				1FEB6BD119732BE1001EFADF /* FavouritesTableViewController.swift in Sources */,
 				1FEB6BDA1974813D001EFADF /* RenderFactory.swift in Sources */,
+				1F81713B1AE1AF930065F83C /* Favourite.swift in Sources */,
 				1FEB6BD619735421001EFADF /* RadiusFactory.swift in Sources */,
-				1F0B24C31ADEBFEF00F26F50 /* RCSBDescResponseParser.swift in Sources */,
+				1F81714B1AE552F70065F83C /* RCSBGetDescServiceDelegate.swift in Sources */,
+				1F0B24C31ADEBFEF00F26F50 /* RCSBGetDescResponseParser.swift in Sources */,
 				1F945B371968AA290029948A /* MoleculeViewController.swift in Sources */,
 				1F5BB60919B27A1700BBD036 /* AtomCloud.swift in Sources */,
+				1F8171451AE551EB0065F83C /* RCSBDownloadService.swift in Sources */,
 				1FEB6BC919730035001EFADF /* Residue.swift in Sources */,
 				1FEB6BCB19730055001EFADF /* Chain.swift in Sources */,
 				1F2713FC19BBA929006A5D34 /* State.swift in Sources */,
@@ -527,6 +566,8 @@
 				1F18D6761A93F02F0038AD97 /* CartoonsRenderMode.swift in Sources */,
 				1F021E831984FBB000CA831C /* PDBRestWebService.swift in Sources */,
 				1F956B091979C3DA005505F8 /* SCNVector3Extensions.swift in Sources */,
+				1F81713D1AE252A50065F83C /* MoleculeSummary.swift in Sources */,
+				1F8171491AE5527A0065F83C /* RCSBDownloadDelegate.swift in Sources */,
 				1FEB6BDC19748574001EFADF /* Bond.swift in Sources */,
 				1F0FC2C51AE05C1500B17ED8 /* IMVS.xcdatamodeld in Sources */,
 				1F945B60196967A10029948A /* Point3D.swift in Sources */,
@@ -535,13 +576,16 @@
 				1F18D6741A93EFC20038AD97 /* SticksRenderMode.swift in Sources */,
 				1F0B24F91ADF1CAE00F26F50 /* RCSBSearchReceiverDelegate.swift in Sources */,
 				1F0B24C01ADEBF0200F26F50 /* SearchMoleculeController.swift in Sources */,
-				1F0B24C51ADEC03F00F26F50 /* RCSBService.swift in Sources */,
+				1F0B24C51ADEC03F00F26F50 /* RCSBSearchService.swift in Sources */,
+				1F8171471AE552260065F83C /* RCSBGetDescService.swift in Sources */,
 				1F2713FA19BBA6DD006A5D34 /* ControlsViewController.swift in Sources */,
 				1F945B5B1968BD960029948A /* Atom.swift in Sources */,
 				1FEB6BCD19730C47001EFADF /* ColourFactory.swift in Sources */,
 				1FEB6BD8197479F9001EFADF /* SecondaryStructure.swift in Sources */,
 				1F945B351968AA290029948A /* AppDelegate.swift in Sources */,
+				1F81713F1AE519AC0065F83C /* LoadingView.swift in Sources */,
 				1F18D6721A93EF600038AD97 /* BallsRenderMode.swift in Sources */,
+				1F8171411AE51AD60065F83C /* MoleculeDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
