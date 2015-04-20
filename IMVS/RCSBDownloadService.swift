@@ -20,7 +20,7 @@ class RCSBDownloadService {
     /** Download the PDB file */
     func downloadFile(molSumm: MoleculeSummary) {
         
-        let url = NSURL(string: "http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=xml&compression=NO&structureId=\(molSumm.id)")
+        let url = NSURL(string: "http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId=\(molSumm.id)")
         
         let task = NSURLSession.sharedSession().downloadTaskWithURL(url!) {
             (url, response, error) in
