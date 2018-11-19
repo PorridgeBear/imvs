@@ -30,14 +30,14 @@ class RenderFactory {
                     var col: Colour
                     switch colour {
                     case RenderColourEnumeration.Amino:
-                        col = ColourFactory.makeAminoColour(atom)
+                        col = ColourFactory.makeAminoColour(atom: atom)
                         break
                     default:
-                        col = ColourFactory.makeCPKColour(atom)
+                        col = ColourFactory.makeCPKColour(atom: atom)
                     }
                     
                     material.diffuse.contents = UIColor(red: CGFloat(col.r) / 255.0, green: CGFloat(col.g) / 255.0, blue: CGFloat(col.b) / 255.0, alpha: 1)
-                    material.lightingModelName = SCNLightingModelLambert
+                    material.lightingModel = SCNMaterial.LightingModel.lambert
                     material.locksAmbientWithDiffuse = true
                     
                     let atomNode = SCNNode()
@@ -46,7 +46,7 @@ class RenderFactory {
                         x: atom.position.x - molecule.center.x,
                         y: atom.position.y - molecule.center.y,
                         z: atom.position.z - molecule.center.z)
-                    atomNode.geometry = SCNSphere(radius: CGFloat(forceSize <= 0.0 ? SizeFactory.makeCovalentSize(atom) + 0.5 : forceSize))
+                    atomNode.geometry = SCNSphere(radius: CGFloat(forceSize <= 0.0 ? SizeFactory.makeCovalentSize(atom: atom) + 0.5 : forceSize))
                     atomNode.geometry!.firstMaterial = material
                     molNode.addChildNode(atomNode)
                 }
@@ -59,16 +59,16 @@ class RenderFactory {
      */
     class func createSticks(colour: RenderColourEnumeration, molecule: Molecule, molNode: SCNNode) {
         
-        RenderFactory.createBalls(colour, molecule: molecule, molNode: molNode, forceSize: 0.3)
+        RenderFactory.createBalls(colour: colour, molecule: molecule, molNode: molNode, forceSize: 0.3)
         
-        println("Draw \(molecule.bonds.count) bonds")
+        print("Draw \(molecule.bonds.count) bonds")
         
         for bond in molecule.bonds {
             
             // Bond src half
             
             var bondNodeSrc = SCNNode()
-            let bondHeightAndTSrc = computeBondHeightAndTransform(bond.src, t: bond.dst, m: molecule)
+            let bondHeightAndTSrc = computeBondHeightAndTransform(f: bond.src, t: bond.dst, m: molecule)
             bondNodeSrc.transform = bondHeightAndTSrc.transform
             
             let materialSrc = SCNMaterial()
@@ -76,14 +76,14 @@ class RenderFactory {
             var colSrc: Colour
             switch colour {
             case RenderColourEnumeration.Amino:
-                colSrc = ColourFactory.makeAminoColour(bond.src)
+                colSrc = ColourFactory.makeAminoColour(atom: bond.src)
                 break
             default:
-                colSrc = ColourFactory.makeCPKColour(bond.src)
+                colSrc = ColourFactory.makeCPKColour(atom: bond.src)
             }
             
             materialSrc.diffuse.contents = UIColor(red: CGFloat(colSrc.r) / 255.0, green: CGFloat(colSrc.g) / 255.0, blue: CGFloat(colSrc.b) / 255.0, alpha: 1)
-            materialSrc.lightingModelName = SCNLightingModelLambert
+            materialSrc.lightingModel = SCNMaterial.LightingModel.lambert
             materialSrc.locksAmbientWithDiffuse = true
             
             bondNodeSrc.geometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: CGFloat(bondHeightAndTSrc.height))
@@ -94,7 +94,7 @@ class RenderFactory {
             // Bond dst half
 
             var bondNodeDst = SCNNode()
-            let bondHeightAndTDst = computeBondHeightAndTransform(bond.dst, t: bond.src, m: molecule)
+            let bondHeightAndTDst = computeBondHeightAndTransform(f: bond.dst, t: bond.src, m: molecule)
             bondNodeDst.transform = bondHeightAndTDst.transform
             
             let materialDst = SCNMaterial()
@@ -102,14 +102,14 @@ class RenderFactory {
             var colDst: Colour
             switch colour {
             case RenderColourEnumeration.Amino:
-                colDst = ColourFactory.makeAminoColour(bond.dst)
+                colDst = ColourFactory.makeAminoColour(atom: bond.dst)
                 break
             default:
-                colDst = ColourFactory.makeCPKColour(bond.dst)
+                colDst = ColourFactory.makeCPKColour(atom: bond.dst)
             }
 
             materialDst.diffuse.contents = UIColor(red: CGFloat(colDst.r) / 255.0, green: CGFloat(colDst.g) / 255.0, blue: CGFloat(colDst.b) / 255.0, alpha: 1)
-            materialDst.lightingModelName = SCNLightingModelLambert
+            materialDst.lightingModel = SCNMaterial.LightingModel.lambert
             materialDst.locksAmbientWithDiffuse = true
             
             bondNodeDst.geometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: CGFloat(bondHeightAndTDst.height))
@@ -127,12 +127,12 @@ class RenderFactory {
         let fToT = SCNVector3Make(t.position.x - f.position.x, t.position.y - f.position.y, t.position.z - f.position.z)
         let worldY = SCNVector3Make(0, 1, 0)
         
-        var angle = acos(SCNVector3DotProduct(worldY, fToT.normalized()))
-        if SCNVector3DotProduct(SCNVector3Make(fToT.x, 0, fToT.z), fToT) > 0 {
+        var angle = acos(SCNVector3DotProduct(left: worldY, right: fToT.normalized()))
+        if SCNVector3DotProduct(left: SCNVector3Make(fToT.x, 0, fToT.z), right: fToT) > 0 {
             angle = -angle;
         }
         
-        let rotAxis = SCNVector3CrossProduct(fToT, worldY).normalized();
+        let rotAxis = SCNVector3CrossProduct(left: fToT, right: worldY).normalized();
 
         let origin = SCNVector3(x: f.position.x - m.center.x + (fToT.x / 4),
                                 y: f.position.y - m.center.y + (fToT.y / 4),
@@ -153,8 +153,8 @@ class RenderFactory {
     class func overlayCubes(molecule: Molecule, molNode: SCNNode, forceSize: Float) {
         
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.redColor()
-        material.lightingModelName = SCNLightingModelLambert
+        material.diffuse.contents = UIColor.red
+        material.lightingModel = SCNMaterial.LightingModel.lambert
         material.locksAmbientWithDiffuse = true
         
         for cloud in molecule.clouds {
@@ -215,9 +215,9 @@ class RenderFactory {
             var guideCoordsN: [SCNVector3] = [],
             guideCoordsP: [SCNVector3] = []
             
-            println("Num residues \(chain.residues.count)")
+            print("Num residues \(chain.residues.count)")
             
-            for var ri = 0; ri < chain.residues.count - 1; ri++ {
+            for ri in 0..<(chain.residues.count - 1){
                 
                 let resCurr = chain.residues[ri];
                 let resNext = chain.residues[ri + 1];
@@ -238,10 +238,10 @@ class RenderFactory {
                 a.z = caNext!.position.z - caCurr!.position.z
                 
                 // c = normal to peptide plane pointing away from helix axis
-                c = a.cross(b)
+                c = a.cross(vector: b)
                 
                 // d = lies parallel to peptide plane and perpendicular to a
-                d = c.cross(a)
+                d = c.cross(vector: a)
                 
                 c.normalize()
                 d.normalize()
@@ -269,7 +269,7 @@ class RenderFactory {
                 // handle carbonyl oxygen flip
                 var d2 = SCNVector3Zero
                 
-                if ri > 0 && dPrev.dot(d) < 0 {
+                if ri > 0 && dPrev.dot(vector: d) < 0 {
                     d2.x = -d.x
                     d2.y = -d.y
                     d2.z = -d.z
@@ -297,7 +297,7 @@ class RenderFactory {
                     
                     let material = SCNMaterial()
                     material.diffuse.contents = UIColor(red: CGFloat(155) / 255.0, green: CGFloat(155) / 255.0, blue: CGFloat(155) / 255.0, alpha: 1)
-                    material.lightingModelName = SCNLightingModelLambert
+                    material.lightingModel = SCNMaterial.LightingModel.lambert
                     material.locksAmbientWithDiffuse = true
                     
                     let atomNode = SCNNode()
@@ -314,7 +314,7 @@ class RenderFactory {
                     
                     let material = SCNMaterial()
                     material.diffuse.contents = UIColor(red: CGFloat(0) / 255.0, green: CGFloat(155) / 255.0, blue: CGFloat(155) / 255.0, alpha: 1)
-                    material.lightingModelName = SCNLightingModelLambert
+                    material.lightingModel = SCNMaterial.LightingModel.lambert
                     material.locksAmbientWithDiffuse = true
                     
                     let atomNode = SCNNode()

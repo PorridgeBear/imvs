@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class MoleculeTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class MoleculeTableViewController: UITableViewController {
     
     /*
     var cdstore: CoreDataStore {
@@ -67,21 +67,23 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
         */
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return pdbFileList.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var cell: MoleculeTableViewCell? = tableView.dequeueReusableCellWithIdentifier("MolCell") as! MoleculeTableViewCell
+        var cell: MoleculeTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "MolCell") as? MoleculeTableViewCell
         
         if cell == nil {
-            cell = MoleculeTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MolCell")
+            cell = MoleculeTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "MolCell")
         }
         
         cell!.nameLabel!.text = self.pdbFileList[indexPath.row]
@@ -89,16 +91,15 @@ class MoleculeTableViewController: UITableViewController, UITableViewDelegate, U
         return cell!
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0;
     }
-        
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "RenderMolecule") {
             
-            let viewController:MoleculeViewController = segue!.destinationViewController as! MoleculeViewController
-            let indexPath = self.tableView.indexPathForSelectedRow()
+            let viewController:MoleculeViewController = segue.destination as! MoleculeViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
             viewController.pdbFile = self.pdbFileList[indexPath!.row]
         }
     }

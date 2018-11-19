@@ -29,9 +29,9 @@ class ColourFactory {
             return Colour(r:   0, g: 255, b:   0) // Boron
         case "P" :
             return Colour(r: 255, g: 165, b:   0) // Phosphorus
-        case "P" :
+        case "Fe" :
             return Colour(r: 255, g: 165, b:   0) // Iron
-        case "P" :
+        case "Ba" :
             return Colour(r: 255, g: 165, b:   0) // Barium
         case "Na" :
             return Colour(r:   0, g:   0, b: 255) // Sodium
@@ -68,7 +68,7 @@ class ColourFactory {
         case "Li" :
             return Colour(r: 178, g:  34, b:   34) // Lithium
         case "He" :
-            return Colour(r: 255, g: 192, b: 203) // Lithium
+            return Colour(r: 255, g: 192, b: 203) // Helium
         default:
             return Colour(r: 255, g:  20, b: 147) // Unknown
         }

@@ -45,7 +45,7 @@ class Molecule {
             chains.append(chain)
         }
         
-        chain.addAtom(atom)
+        chain.addAtom(atom: atom)
     }
     
     func commit() {
@@ -60,7 +60,7 @@ class Molecule {
                 
                 for atom in residue.atoms {
             
-                    atom.valence = pt.getElementBySymbol(atom.element).valence
+                    atom.valence = pt.getElementBySymbol(symbol: atom.element).valence
                     
                     if atom.position.x < minX {
                         minX = atom.position.x
@@ -90,7 +90,7 @@ class Molecule {
                     center.y += atom.position.y
                     center.z += atom.position.z
                     
-                    numAtoms++
+                    numAtoms += 1
                 }
             }
         }
@@ -126,27 +126,25 @@ class Molecule {
         // per-chain bonding, then other special bonds (disulphide bridges,
         // polypeptide chains and sugar phosphates)
         
-        println("Creating bonds")
+        print("Creating bonds")
         
         for chain in chains {
             
-            println("Chain \(chain.id)");
+            print("Chain \(chain.id)");
             
             var cloud = AtomCloud(cubeLength: 1.83)
             
             for residue in chain.residues {
-                
-                for var i = 0; i < residue.atoms.count; i++ {
-                    
-                    cloud.insert(residue.atoms[i])
+                for i in 0..<residue.atoms.count {
+                    cloud.insert(atom: residue.atoms[i])
                 }
             }
             
             clouds.append(cloud)
-            doBonds(cloud, chain: chain)
+            doBonds(cloud: cloud, chain: chain)
         }
         
-        println("Created \(bonds.count) bonds.")
+        print("Created \(bonds.count) bonds.")
     }
     
     func doBonds(cloud: AtomCloud, chain: Chain) {
@@ -155,11 +153,11 @@ class Molecule {
             
             for src in residue.atoms {
                 
-                let nearests = cloud.nearest(src)
+                let nearests = cloud.nearest(atom: src)
                 
                 for dst in nearests {
                 
-                    if doesBondExist(src, dst: dst) {
+                    if doesBondExist(src: src, dst: dst) {
                         continue
                     }
                     

@@ -23,9 +23,9 @@ class MoleculeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println("MVC viewDidLoad \(pdbFile)")
+        print("MVC viewDidLoad \(pdbFile)")
         
-        pdbLoader.loadMoleculeForPath(pdbFile)
+        pdbLoader.loadMoleculeForPath(pdbFile: pdbFile)
         self.title = pdbLoader.molecule.name
 
         cameraNode.camera = SCNCamera()
@@ -35,27 +35,27 @@ class MoleculeViewController: UIViewController {
  
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
-        lightNode.light!.type = SCNLightTypeOmni
+        lightNode.light!.type = SCNLight.LightType.omni
         lightNode.position = SCNVector3(x: 0, y: 0, z: pdbLoader.molecule.maxN)
         scene.rootNode.addChildNode(lightNode)
         
         let lightNode2 = SCNNode()
         lightNode2.light = SCNLight()
-        lightNode2.light!.type = SCNLightTypeOmni
+        lightNode2.light!.type = SCNLight.LightType.omni
         lightNode2.position = SCNVector3(x: 0, y: 0, z: -pdbLoader.molecule.maxN)
         scene.rootNode.addChildNode(lightNode2)
         
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = SCNLightTypeAmbient
-        ambientLightNode.light!.color = UIColor.darkGrayColor()
+        ambientLightNode.light!.type = SCNLight.LightType.ambient
+        ambientLightNode.light!.color = UIColor.darkGray
         scene.rootNode.addChildNode(ambientLightNode)
         
         switch state.mode {
         case .Sticks:
-            RenderFactory.createSticks(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
+            RenderFactory.createSticks(colour: state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         default:
-            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+            RenderFactory.createBalls(colour: state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         }
         
         scene.rootNode.addChildNode(molNode)
@@ -65,39 +65,39 @@ class MoleculeViewController: UIViewController {
         scnView.allowsCameraControl = true
         scnView.pointOfView = cameraNode
         // scnView.showsStatistics = true
-        scnView.backgroundColor = UIColor.blackColor()
+        scnView.backgroundColor = UIColor.black
         
         // Controls
         let gestureRecognizers = NSMutableArray()
-        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
-        let pinchGesture = UIPinchGestureRecognizer(target:self, action: "handlePinch:");
-        gestureRecognizers.addObject(tapGesture)
-        gestureRecognizers.addObject(pinchGesture)
-        gestureRecognizers.addObjectsFromArray(scnView.gestureRecognizers!)
-        scnView.gestureRecognizers = gestureRecognizers as [AnyObject]?
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(tap:)))
+        let pinchGesture = UIPinchGestureRecognizer(target:self, action: #selector(handlePinch(pinch:)));
+        gestureRecognizers.add(tapGesture)
+        gestureRecognizers.add(pinchGesture)
+        gestureRecognizers.addObjects(from: scnView.gestureRecognizers!)
+        scnView.gestureRecognizers = gestureRecognizers as? [UIGestureRecognizer]
     }
     
     /**
      * Tap to pick - just logs atom name to console currently
      */
-    func handleTap(tap: UITapGestureRecognizer) {
+    @objc func handleTap(tap: UITapGestureRecognizer) {
         
         let scnView = self.view as! SCNView
         
-        var point = tap.locationInView(scnView)
+        var point = tap.location(in: scnView)
         var hitResults = scnView.hitTest(point, options: nil)
         
-        if hitResults!.count > 0 {
+        if hitResults.count > 0 {
             
-            var result: SCNHitTestResult = hitResults![0] as! SCNHitTestResult
-            println(result.node.name)
+            var result: SCNHitTestResult = hitResults[0]
+            print(result.node.name)
         }
     }
     
     /**
      * Pinch to zoom (move camera along Z)
      */
-    func handlePinch(pinch: UIPinchGestureRecognizer) {
+    @objc func handlePinch(pinch: UIPinchGestureRecognizer) {
 
         var z = (self.cameraNode.position.z) * (1 / Float(pinch.scale));
         z = fmaxf(1.0, z)
@@ -120,23 +120,23 @@ class MoleculeViewController: UIViewController {
         // Render
         switch state.mode {
         case .Sticks:
-            RenderFactory.createSticks(state.colour, molecule: pdbLoader.molecule, molNode: molNode)
+            RenderFactory.createSticks(colour: state.colour, molecule: pdbLoader.molecule, molNode: molNode)
         default:
-            RenderFactory.createBalls(state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
+            RenderFactory.createBalls(colour: state.colour, molecule: pdbLoader.molecule, molNode: molNode, forceSize: 0.0)
         }
         
         scene.rootNode.addChildNode(molNode)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate: Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIInterfaceOrientationMask.allButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return UIInterfaceOrientationMask.all
         }
     }
     

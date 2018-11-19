@@ -32,6 +32,6 @@ class Chain {
             residues.append(residue)
         }
         
-        residue.addAtom(atom)
+        residue.addAtom(atom: atom)
     }
 }

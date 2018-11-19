@@ -65,7 +65,7 @@ class Octree {
         
         self.worldSize = worldSize
         var position = [Float(0.0), Float(0.0), Float(0.0)]
-        self.root = addNode(position, size: worldSize, objects: [])
+        self.root = addNode(position: position, size: worldSize, objects: [])
     }
     
     func addNode(position: [Float], size: Float, objects: [AnyObject?]) -> OctreeNode {
@@ -82,7 +82,7 @@ class Octree {
             
             var pos = parent.position
             var offset = size / 2
-            var branch = findBranch(parent, position: objectPosition)
+            var branch = findBranch(root: parent, position: objectPosition)
             
             var newCenter: [Float]?
             
@@ -112,16 +112,16 @@ class Octree {
                 newCenter = [pos[0] + offset, pos[1] + offset, pos[2] - offset]
             }
             
-            return addNode(newCenter!, size: size, objects: [object])
+            return addNode(position: newCenter!, size: size, objects: [object])
             
         } else if root!.position != objectPosition && !root!.isLeaf {
             
             // we're in an octNode still, we need to traverse further
-            var branch: Int = findBranch(root!, position: objectPosition)
+            var branch: Int = findBranch(root: root!, position: objectPosition)
             // Find the new scale we working with
             let newSize: Float = Float(root!.size / 2)
             // Perform the same operation on the appropriate branch recursively
-            root!.branches[branch] = insertNode(root!.branches[branch], size: newSize, parent: root!, object: object)
+            root!.branches[branch] = insertNode(root: root!.branches[branch], size: newSize, parent: root!, object: object)
             
         } else if root!.isLeaf {
             
@@ -141,8 +141,8 @@ class Octree {
                     
                     let atom = obj as! Atom
                     let objPosition = [atom.position.x, atom.position.y, atom.position.z]
-                    let branch: Int = findBranch(root!, position: objPosition)
-                    root!.branches[branch] = insertNode(root!.branches[branch], size: newSize, parent: root!, object: atom)
+                    let branch: Int = findBranch(root: root!, position: objPosition)
+                    root!.branches[branch] = insertNode(root: root!.branches[branch], size: newSize, parent: root!, object: atom)
                 }
             }
         }
@@ -195,16 +195,16 @@ class Octree {
     }
     
     func display() {
-        displayNode(root!, depth: 1)
+        displayNode(node: root!, depth: 1)
     }
     
     func displayNode(node: OctreeNode?, depth: Int) {
         
         if node != nil {
             for branch in node!.branches {
-                let indent = String(count: depth, repeatedValue: Character("-"))
-                println("\(indent)>\(branch) has \(branch?.objects!.count)")
-                displayNode(branch, depth: depth + 1)
+                let indent = (repeating: "-", count: depth)
+                print("\(indent)>\(branch) has \(branch?.objects!.count)")
+                displayNode(node: branch, depth: depth + 1)
             }
         }
     }

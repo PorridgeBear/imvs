@@ -17,7 +17,7 @@ class ControlsViewController: UIViewController {
     
     func finish() {
         getMoleculeViewController().stateChanged()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func modeBalls(sender: AnyObject) {

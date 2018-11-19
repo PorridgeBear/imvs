@@ -74,43 +74,43 @@ class AtomCloud {
         var cz = floor(atom.position.z / cubeLength)
         
         // Top layer
-        findObjectsInCube(cx - 1, y: cy + 1, z: cz, result: &result)
-        findObjectsInCube(cx - 1, y: cy + 1, z: cz - 1, result: &result)
-        findObjectsInCube(cx, y: cy + 1, z: cz - 1, result: &result)
-        findObjectsInCube(cx + 1, y: cy + 1, z: cz - 1, result: &result)
-        findObjectsInCube(cx + 1, y: cy + 1, z: cz, result: &result)
-        findObjectsInCube(cx + 1, y: cy + 1, z: cz + 1, result: &result)
-        findObjectsInCube(cx, y: cy + 1, z: cz + 1, result: &result)
-        findObjectsInCube(cx - 1, y: cy + 1, z: cz + 1, result: &result)
-        findObjectsInCube(cx, y: cy + 1, z: cz, result: &result)
+        findObjectsInCube(x: cx - 1, y: cy + 1, z: cz, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy + 1, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx, y: cy + 1, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy + 1, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy + 1, z: cz, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy + 1, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx, y: cy + 1, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy + 1, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx, y: cy + 1, z: cz, result: &result)
         
         // Center layer
-        findObjectsInCube(cx - 1, y: cy, z: cz, result: &result)
-        findObjectsInCube(cx - 1, y: cy, z: cz - 1, result: &result)
-        findObjectsInCube(cx, y: cy, z: cz - 1, result: &result)
-        findObjectsInCube(cx + 1, y: cy, z: cz - 1, result: &result)
-        findObjectsInCube(cx + 1, y: cy, z: cz, result: &result)
-        findObjectsInCube(cx + 1, y: cy, z: cz + 1, result: &result)
-        findObjectsInCube(cx, y: cy, z: cz + 1, result: &result)
-        findObjectsInCube(cx - 1, y: cy, z: cz + 1, result: &result)
-        findObjectsInCube(cx, y: cy, z: cz, result: &result)
+        findObjectsInCube(x: cx - 1, y: cy, z: cz, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx, y: cy, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy, z: cz, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx, y: cy, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx, y: cy, z: cz, result: &result)
 
         // Bottom layer
-        findObjectsInCube(cx - 1, y: cy - 1, z: cz, result: &result)
-        findObjectsInCube(cx - 1, y: cy - 1, z: cz - 1, result: &result)
-        findObjectsInCube(cx, y: cy - 1, z: cz - 1, result: &result)
-        findObjectsInCube(cx + 1, y: cy - 1, z: cz - 1, result: &result)
-        findObjectsInCube(cx + 1, y: cy - 1, z: cz, result: &result)
-        findObjectsInCube(cx + 1, y: cy - 1, z: cz + 1, result: &result)
-        findObjectsInCube(cx, y: cy - 1, z: cz + 1, result: &result)
-        findObjectsInCube(cx - 1, y: cy - 1, z: cz + 1, result: &result)
-        findObjectsInCube(cx, y: cy - 1, z: cz, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy - 1, z: cz, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy - 1, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx, y: cy - 1, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy - 1, z: cz - 1, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy - 1, z: cz, result: &result)
+        findObjectsInCube(x:cx + 1, y: cy - 1, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx, y: cy - 1, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx - 1, y: cy - 1, z: cz + 1, result: &result)
+        findObjectsInCube(x:cx, y: cy - 1, z: cz, result: &result)
         
         return result
     }
     
     /** Helper to return objects in a cube */
-    func findObjectsInCube(x: Float, y: Float, z: Float, inout result: [Atom]) {
+    func findObjectsInCube(x: Float, y: Float, z: Float, result: inout [Atom]) {
         
         // Create cube coordinate index
         var index = String("\(x),\(y),\(z)")
