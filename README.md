@@ -8,7 +8,7 @@ It is a reimplementation of my 1999 dissertation software Java3D Molecular Visua
 
 It is built for iOS using Apple's Swift language. It uses SceneKit
 
-![iMVS 0.1.1 Screens](http://www.adcworks.com/wp-content/uploads/2014/08/imvs011.jpg)
+It has been updated for swift 4.2 by BinarySoftware
 
 # Use of iMVS sources
 
